@@ -1,0 +1,30 @@
+{{!< default}}
+<style>
+  .content-wrap {
+    max-width: 902px;
+
+  }
+  p, li {
+    font-size: 18px;
+  }
+</style>
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+  {{!-- Hero --}}
+  {{> hero-product
+    wide_img=true
+    full_img=false
+    img_bg=false
+  }}
+  <div class="m-t-xl">
+  <article class="{{post_class}} content-wrap post-access-{{visibility}}">
+    <div class="content">
+      {{#if access}}
+        {{content}}
+      {{else}}
+        {{> content-cta}}
+      {{/if}}
+    </div>
+  </article>
+  </div>
+{{/post}}

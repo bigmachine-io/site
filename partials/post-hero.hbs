@@ -1,0 +1,82 @@
+<div class="hero{{#unless feature_image}} no-img{{/unless}}{{#if featured}} is-featured{{/if}}{{#if img_bg}} has-img-bg flex flex-cc{{else}} p-t-lg border-top-1{{/if}}"
+  {{#primary_tag}}{{#if accent_color}}style="--color-accent: {{accent_color}}"{{/if}}{{/primary_tag}}>
+  <div class="hero__content flex flex-col flex-cc m-b">
+    {{!-- Date and reading --}}
+    {{#is "post"}}
+      <div class="hero__info flex flex-cc text-acc-3 fw-500 m-b">
+        <span>{{date published_at timeago=""}}</span>
+        <span class="m-l-sm m-r-sm separator-dot">&bull;</span>
+        <span>{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+        {{#if featured}}
+          <span class="featured m-l-sm">{{> icon name="star" size="xs"}}</span>
+        {{/if}}
+      </div>
+    {{/is}}
+
+    {{!-- Title --}}
+    <h1 class="hero__title text-center{{#is "page"}} m-b-0{{/is}}">{{title}}</h1>
+
+    {{!-- Author & tag --}}
+    {{#is "post"}}
+      <div class="hero__details flex text-acc-3"> 
+        {{#has author="count:1"}}
+          {{#primary_author}}
+            {{#link href=(url) class="post-card__author"}}
+              {{#if profile_image}}
+                <img 
+                  class="lazyload" 
+                  data-sizes="auto"
+                  data-src="{{img_url profile_image size="xs"}}" 
+                  src="{{img_url profile_image size="xxs"}}" 
+                  alt="{{name}}" 
+                />
+              {{/if}}
+              <span class="fw-600">{{name}}</span>
+            {{/link}}
+          {{/primary_author}}
+        {{else}}
+          {{#foreach authors}}
+            {{#unless @first}}
+              {{#if @last}}
+                <span class="fw-600 m-l-xs m-r-xs">&</span>
+              {{else}}
+                <span class="fw-600 m-r-xs">,</span>
+              {{/if}}
+            {{/unless}}
+            {{#link href=(url) class="post-card__author"}}
+              <span class="fw-600">{{name}}</span>{{/link}}
+          {{/foreach}}
+        {{/has}}
+      </div>
+    {{/is}}
+
+    {{#is "page"}}
+      {{#if custom_excerpt}}
+        <div class="page__excerpt m-t text-acc-3 text-center text-lg">{{custom_excerpt}}</div>
+      {{/if}}
+    {{/is}}
+  </div>
+
+  {{!-- Image --}}
+  {{#if feature_image}}
+    <div class="hero__media{{#if wide_img}} wide{{/if}}{{#if full_img}} full{{/if}}{{#if img_bg}} is-bg{{/if}}">
+      <figure class="hero__figure">
+        <img
+          class="lazyload hero__img"
+          data-srcset="{{img_url feature_image size="s"}} 300w,
+                  {{img_url feature_image size="m"}} 600w,
+                  {{img_url feature_image size="l"}} 1000w,
+                  {{img_url feature_image size="xl"}} 2000w"
+          srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-sizes="auto"
+          data-src="{{img_url feature_image size="s"}}"
+          src="{{img_url feature_image size="xs"}}"
+          alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+        />
+        {{#if feature_image_caption}}
+          <figcaption>{{feature_image_caption}}</figcaption>
+        {{/if}}
+      </figure>
+    </div>
+  {{/if}}
+</div>

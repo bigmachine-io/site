@@ -1,0 +1,32 @@
+{{!< ../default}}
+
+<div class="flex flex-cc flex-1 border-top-1">
+  <div class="signup-box flex flex-cc">
+    {{#if @member.paid}}
+
+      {{!-- Logged in, paying member: Redirect home --}}
+      <script>window.location = '{{@site.url}}';</script>
+
+    {{else if @member}}
+
+      {{!-- Logged in, paying member: Redirect to account page --}}
+      <script>window.location = '/account/';</script>
+      
+    {{else}}
+      <div class="signup-box__content border-1">
+        <h1 class="signup-box__title">{{#page}}{{title}}{{else}}{{t "Create Your Account"}}{{/page}}</h1>
+        <p id="form-input-label">{{t "Sign up to {sitetitle} to get access to premium content." sitetitle=@site.title}}</p>
+        {{> subscribe-form 
+          form_type="signup" 
+          button_text=(t 'Continue') 
+          name=true
+        }}
+        <p class="m-t-lg m-0 text-center">
+          <small>{{t "Already have an account?"}} 
+            {{#link href="/signin/"}}{{t "Log in"}}{{/link}}
+          </small>
+        </p>
+      </div>
+    {{/if}}
+  </div>
+</div>

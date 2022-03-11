@@ -1,0 +1,76 @@
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  input {
+    width: 100%;
+    padding: 0.75em var(--gap);
+    line-height: 1;
+    border-color: var(--color-border);
+
+    @mixin attention {
+      box-shadow: 0 0 0 1px var(--color-neutral);
+      border-color: transparent;
+    }
+  }
+
+  &.is-joined {
+    .subscribe-box {
+      display: flex;
+      padding: var(--gap-sm);
+      background-color: var(--color-bg-acc-2);
+      border-radius: var(--global-radius);
+
+      input {
+        margin: 0;
+        padding: 0 var(--gap);
+        border: none;
+        box-shadow: none;
+        flex: 2;
+      }
+
+      button {
+        padding: 1em;
+        flex: 1;
+        font-size: 0.8rem;
+
+        @media (--mq-sm) {
+          padding: 1em 2em;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+form.loading {
+  button {
+    position: relative;
+    color: transparent!important;
+    pointer-events: none;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      margin-left: -11px;
+      margin-top: -11px;
+      top: 50%;
+      left: 50%;
+      border: 2px solid var(--color-light);
+      border-radius: 50%;
+      border-right-color: transparent!important;
+      border-top-color: transparent!important;
+      z-index: 1;
+      animation: spin var(--trans-duration) infinite linear;
+    }
+  }
+
+  button.btn--secondary:after {
+    border: 2px solid var(--color-dark);
+  }
+}

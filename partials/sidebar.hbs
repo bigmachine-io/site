@@ -1,0 +1,35 @@
+<aside class="sidebar">
+
+  {{!-- Sidebar latest posts --}}
+  {{#if access}}
+  {{#is "post"}}
+    
+    <div class="sidebar__section border-1">   
+      <div class="sidebar__title">
+        <a href="/collections/{{primary_tag.slug}}">{{primary_tag.name}}</a>
+      </div>   
+      {{#get "posts" filter="primary_tag:{{primary_tag.slug}}" order="published_at" include="tags" as |latest|}}
+      {{#foreach latest}}
+        {{#link href=(url) class="sidebar-story"}}
+          {{#if feature_image}}
+            <div class="sidebar-story__media m-r">
+              <img 
+                class="lazyload" 
+                data-sizes="auto"
+                data-src="{{img_url feature_image size="xs"}}"
+                src="{{img_url feature_image size="xxs"}}"
+                alt="{{title}}"
+              />
+            </div>
+          {{/if}}
+          <div class="sidebar-story__content">
+            <h3 class="sidebar-story__title">{{title}}</h3>
+
+          </div>
+        {{/link}}
+      {{/foreach}}
+    </div>
+    {{/get}}
+  {{/is}}
+  {{/if}}
+</aside>

@@ -1,0 +1,21 @@
+{{!-- Related Posts --}}
+{{#if primary_tag}}
+  {{#get "posts" include="tags,authors" limit="3" filter="id:-{{id}}+tag:{{primary_tag.slug}}" as |related|}}
+    {{#if posts}}
+    <div class="related-posts m-t-lg">
+      <div class="section__title m-b">{{t "You might also like"}}</div>
+      
+      <div class="row post-feed">
+        {{#foreach related}}
+          <div class="col-xs-12 col-md-6 col-lg-4 m-b-lg">
+            {{> post-card 
+              show_img=false
+              show_excerpt=true
+              class="h-100 col"}}
+          </div>
+        {{/foreach}}
+      </div>
+    </div>
+    {{/if}}
+  {{/get}}
+{{/if}}

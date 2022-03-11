@@ -1,0 +1,79 @@
+/* States */
+.is-hidden {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.is-in-view {
+  display: block;
+}
+
+/* Lazyload*/
+.lazyload {
+  opacity: 0;
+  filter: blur(10px);
+  transition: 
+    all var(--trans-default);
+}
+
+.lazyloading {
+  opacity: 0.5;
+  filter: blur(10px);
+  transition: 
+    all var(--trans-default);
+}
+
+.lazyloaded {
+  opacity: 1;
+  filter: blur(0);
+  transition: 
+    all var(--trans-default);
+}
+
+.is-sticky {
+  position: sticky;
+}
+
+.is-fixed {
+  position: fixed;
+}
+
+.is-abs {
+  position: absolute;
+}
+
+.is-rel {
+  position: relative;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.is-round {
+  border-radius: 50%;
+}
+
+[data-color-scheme="dark"] {
+  .lazyload.loaded,
+  .initial.loaded {
+    filter: blur(0) brightness(.8) contrast(1.2);
+  }
+}
+
+.is-overflowY-hidden {
+  overflow-y: hidden;
+}
+
+.is-overflowX-hidden {
+  overflow-x: hidden;
+}
+
+.is-overflow-hidden {
+  overflow: hidden;
+}

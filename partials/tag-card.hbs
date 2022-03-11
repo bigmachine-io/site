@@ -1,0 +1,25 @@
+<a href="{{url}}" title="{{name}}" aria-label="{{name}}" class="tag-card" 
+  {{#if accent_color}} style="--color-accent: {{accent_color}}"{{/if}}>
+  {{!-- Tag image --}}
+  {{#if feature_image}}
+    <div class="tag-card__media">
+      <img class="lazyload tag-card__img"
+        data-srcset="{{img_url feature_image size="xs"}} 100w,
+                {{img_url feature_image size="s"}} 300w,
+                {{img_url feature_image size="m"}} 600w"
+        srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+        data-sizes="auto"
+        data-src="{{img_url feature_image size="s"}}"
+        src="{{img_url feature_image size="xxs"}}"
+        alt="{{name}}"
+      />
+    </div>  
+  {{/if}}
+
+  {{!-- Tag content --}}
+  <div class="tag-card__content flex flex-cc{{#if feature_image}} is-abs{{/if}}">
+    {{!-- Title and count --}}
+    <h4 class="tag-card__name flex-1">{{name}}</h4>
+    <span class="tag-card__count">{{count.posts}}+</span>
+  </div>
+</a>

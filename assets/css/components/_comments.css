@@ -1,0 +1,21 @@
+.comments {
+  .subscribe-form {
+    .subscribe-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cove-input {    
+      margin-right: 0!important;
+      margin-bottom: var(--gap)!important;
+    }
+  }
+
+  .cove-comment {
+    margin-top: 0;
+  }
+
+  #cove-comments {
+    text-align: left;
+  }
+}

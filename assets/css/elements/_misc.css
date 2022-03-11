@@ -1,0 +1,44 @@
+/* Misc */
+hr {
+  border: 0;
+  height: 1px;
+  background-color: var(--color-border);
+  margin: var(--gap-lg) 0;
+}
+
+figcaption {
+  color: var(--color-text-acc-3);
+  font-size: .9rem;
+  font-style: italic;
+  font-weight: var(--font-weight-semi-bold);
+  padding: var(--gap-sm);
+  text-align: center;
+}
+
+abbr {
+  -webkit-font-variant: small-caps;
+  -moz-font-variant: small-caps;
+  -ms-font-variant: small-caps;
+  font-variant: small-caps;
+  font-weight: var(--font-weight-bold);
+  text-transform: lowercase;
+  color: gray;
+}
+
+abbr[title]:hover {
+  cursor: help;
+}
+
+input,
+abbr,
+acronym,
+blockquote,
+code,
+kbd,
+q,
+samp,
+var {
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}

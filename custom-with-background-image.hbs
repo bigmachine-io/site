@@ -1,0 +1,57 @@
+{{!< default}}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+  {{!-- Hero --}}
+  {{> post-hero 
+    wide_img=false
+    full_img=false
+    img_bg=true
+  }}
+
+  {{!-- Article --}}
+  <article class="{{post_class}} content-wrap post-access-{{visibility}}">
+
+    <div class="content">
+      {{#if custom_excerpt}}
+        <p class="content-excerpt">
+          {{custom_excerpt}}
+        </p>
+      {{/if}}
+      
+      {{!-- Main post content --}}
+      {{content}}
+    </div>
+
+  </article>
+
+  {{!-- Elements for posts (not pages) --}}
+  {{#is "post"}}
+    {{#if access}}
+      {{!-- Post tags & post sharing --}}
+      <div class="post-footer content-wrap p-t-lg m-b">
+        {{!-- Post tags --}}
+        {{> tag-list}}
+
+        <span class="flex-1"></span>
+
+        {{!-- Social sharing --}}
+        {{> social-share}}
+      </div>
+
+      {{!-- Post author card --}}
+      {{#primary_author}}
+        <div class="content-wrap">
+          {{> author-card is_wide=true}}
+        </div>
+      {{/primary_author}}
+
+      {{!-- Include Comments --}}
+      {{> comments}}
+    {{/if}}
+
+    {{!-- Related posts --}}
+    {{> related-posts}}
+  {{/is}}
+
+{{/post}}

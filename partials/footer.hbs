@@ -1,0 +1,82 @@
+{{!-- Site footer --}}
+
+<style>
+  .footer .nav a {
+  font-size: 15px;
+}
+</style>
+
+<footer class="footer homes" style="padding:24px">
+  <div class="container wrapper">
+    {{!-- Footer Top --}}
+    {{^is "signin, signup"}}
+    <div class="footer__top">
+      <div class="row">
+        <div class="col-xs-12 col-md-4 footer__el">
+          {{!-- Site title / logo --}}
+          {{#if @site.logo}}
+            <img class="footer__logo lazyload"
+              src="{{img_url @site.logo size="s"}}"
+              alt="{{@site.title}}"/>
+          {{else}}
+            <span class="footer__title">{{@site.title}}</span>
+          {{/if}}
+
+          {{!-- Site description --}}
+          <div class="footer__description m-b">
+            {{@site.description}}
+          </div>
+
+          {{!-- Footer social --}}
+          <div class="footer__social">
+            {{> social-links}}
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-md-4 footer__el" style="font-size:12px">
+          {{!-- Footer nav --}}
+          <div class="row">
+            <div class="col-xs-6">
+              <span class="footer__title">Topics</span>
+              <ul class="nav">
+                {{#get "tags"}}
+                {{#foreach tags}}
+                    <a href="{{url}}">{{name}}</a>
+                {{/foreach}}
+                {{/get}}
+              </ul>
+            </div>
+            
+            <div class="col-xs-6">
+              {{!-- Secondary --}}
+             <span class="footer__title">Courses</span>
+              {{#if @site.secondary_navigation}}
+                {{navigation type="secondary"}}
+              {{/if}}
+            </div>
+            
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-md-4 footer__el">
+          {{#unless member}}
+            <h3 style="color:#ccc">Subscribe</h3>
+
+            {{> subscribe-form  
+              input_label="footer-input-label"
+              button_text=(t 'Join now') 
+              button_class="btn--gradient"
+            }}
+          {{/unless}}
+        </div>
+      </div>
+    </div>
+    {{/is}}
+
+    {{!-- Footer Bottom --}}
+    <div class="footer__bottom text-center">
+      <span style="color:#ccc">&copy;{{date format="YYYY"}}&nbsp;{{#link href=@site.url}}{{@site.title}}{{/link}}.</span>
+      
+    </div>
+  </div>
+</footer>

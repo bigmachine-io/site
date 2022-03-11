@@ -1,0 +1,169 @@
+{
+  "name": "nikko",
+  "description": "Nikko Ghost Theme",
+  "demo": "https://nikko.bironthemes.com",
+  "version": "1.5.0",
+  "engines": {
+    "ghost": ">=4.0.0",
+    "ghost-api": "v4"
+  },
+  "author": {
+    "name": "Biron Themes",
+    "email": "bironthemes@gmail.com",
+    "url": "https://bironthemes.com"
+  },
+  "gpm": {
+    "type": "theme",
+    "categories": [
+      "Newletter",
+      "Blog"
+    ]
+  },
+  "keywords": [
+    "ghost",
+    "theme",
+    "ghost-theme"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bironthemes/nikko-ghost.git"
+  },
+  "scripts": {
+    "dev": "gulp",
+    "zip": "gulp zip",
+    "test": "gscan ."
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "beeper": "^2.1.0",
+    "browser-sync": "^2.26.13",
+    "cssnano": "^5.0.4",
+    "cssnano-preset-advanced": "^5.1.1",
+    "gscan": "^1.0.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-zip": "^4.2.0",
+    "postcss": "^8.2.13",
+    "postcss-cssential": "^1.1.0",
+    "postcss-import": "^14.0.2",
+    "postcss-mixins": "^8.0.0",
+    "postcss-nested": "^5.0.5",
+    "postcss-preset-env": "^6.7.0",
+    "pump": "^3.0.0"
+  },
+  "dependencies": {
+    "@tryghost/content-api": "^1.4.1",
+    "fitvids": "^2.1.1",
+    "fslightbox": "^3.1.0",
+    "fuse.js": "^6.4.6",
+    "headroom.js": "^0.12.0",
+    "lazysizes": "^5.3.0",
+    "tiny-slider": "^2.9.3",
+    "tocbot": "^4.11.2"
+  },
+  "config": {
+    "custom": {
+      "secondary_color": {
+        "type": "color",
+        "default": "#e052a5"
+      },
+      "default_color_scheme": {
+        "type": "select",
+        "options": [
+          "System",
+          "Light",
+          "Dark"
+        ],
+        "default": "System"
+      },
+      "typography": {
+        "type": "select",
+        "options": [
+          "Inter",
+          "Cabin",
+          "Lora",
+          "Manrope",
+          "Inconsolata"
+        ],
+        "default": "Inter"
+      },
+      "header_position": {
+        "type": "select",
+				"options": [
+					"relative",
+					"sticky",
+					"floating"
+				],
+        "default": "relative"
+      },
+      "search_url": {
+        "type": "text"
+      },
+      "search_key": {
+        "type": "text"
+      },
+      "search_in_content": {
+        "type": "boolean",
+        "default": false
+      },
+      "hero_headline": {
+        "type": "text",
+        "group": "homepage"
+      },
+      "hero_description": {
+        "type": "text",
+        "group": "homepage"
+      },
+      "hero_form": {
+        "type": "boolean",
+        "default": true,
+        "group": "homepage"
+      },
+      "post_feed_style": {
+        "type": "select",
+        "options": [
+          "list",
+          "grid"
+        ],
+        "default": "list",
+        "group": "homepage"
+      },
+      "enable_image_lightbox": {
+        "type": "boolean",
+        "default": true,
+        "group": "post"
+      },
+			"open_external_links_in_new_tab": {
+        "type": "boolean",
+        "default": false,
+        "group": "post"
+      }
+    },
+    "posts_per_page": 12,
+    "image_sizes": {
+      "xxs": {
+        "width": 30
+      },
+      "xs": {
+        "width": 100
+      },
+      "s": {
+        "width": 300
+      },
+      "m": {
+        "width": 600
+      },
+      "l": {
+        "width": 1000
+      },
+      "xl": {
+        "width": 2000
+      }
+    }
+  }
+}

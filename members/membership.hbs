@@ -1,0 +1,46 @@
+{{!< ../default}}
+
+{{!-- page header --}}
+{{#get "pages" filter="slug:stop-feeling-link-an-imposter" limit="1" as |profile|}}
+
+  {{!-- Show the profile --}}
+  {{#foreach profile}}
+
+    {{> hero }}
+    <article class="{{post_class}} content-wrap post-access-{{visibility}}">
+
+      <div class="content">
+        {{!-- Main post content --}}
+        {{content}}
+      </div>
+
+    </article>
+
+  {{/foreach}}
+{{/get}}
+
+{{!-- Membership data --}}
+<div class="checkout m-t-xl">
+  <div class="row">
+    {{#if @member.paid}}
+      {{!-- Not logged in: Redirect to signin --}}
+      <script>window.location = '{{@site.url}}/account/';</script>
+    {{/if}}
+  </div>
+</div>
+{{!-- You can uncomment the section below or use it as a template and 
+  add it in the membership page in the Ghost Admin in a html card --}}
+{{!-- FAQ --}}
+{{!-- <div class="faq content-wrap">
+  <h3 class="faq__title text-center">FAQ</h3>
+
+  <details>
+    <summary>Where to find the best Ghost Themes?</summary>
+    <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+  </details>
+
+  <details>
+    <summary>What is a Ghost Theme?</summary>
+    <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+  </details>
+</div> --}}

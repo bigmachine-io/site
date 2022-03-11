@@ -1,0 +1,21 @@
+<span class="is-hidden" id="cove-count"></span>
+<div id="cove" class="comments__panel text-center w-100 m-b text-acc-2"></div>
+
+{{#if @member}}
+  <div>{{@member.email}} · {{#link href="javascript:" data-members-signout=""}}{{t "Log out"}}{{/link}}</div>
+{{else}}
+  <p id="form-input-label" class="m-b fw-500 text-acc-1 text-lg">{{t "Join the conversation"}}</p>
+  {{> subscribe-form cove=true form_type="signin" button_text=(t 'Send login link')}}
+{{/if}}
+
+<script>
+  const Cove = {
+    publication: CONFIG.COVE_ID,
+    contentId: "{{id}}",
+    memberId: "{{@member.uuid}}",
+    memberEmail: "{{@member.email}}",
+    memberName: "{{@member.firstname}}"
+  }
+</script>
+
+<script src="https://cdn.cove.chat/comments.js" async defer></script>

@@ -1,0 +1,40 @@
+{{!< default}}
+
+{{!-- Archive Page --}}
+{{#page}} 
+  {{> post-hero 
+    wide_img=true
+    full_img=false
+    img_bg=false
+  }}
+  <div class="page__excerpt text-acc-3 text-center text-lg">
+    {{#get "posts" limit="1"}}
+      {{t "Browse the complete archive of {total} posts." total=pagination.total}}
+    {{/get}}
+  </div>
+{{else}}
+  <div class="hero__content flex flex-col flex-cc m-t-lg m-b-lg">
+    <h1 class="hero__title text-center">{{t "All The Videos"}}</h1>
+    <div class="page__excerpt text-acc-3 text-center text-lg">
+      {{#get "posts" limit="1"}}
+        {{t "Have a look around! There are {total} videos and posts. If you can't find something, try searching above." total=pagination.total}}
+      {{/get}}
+    </div>
+  </div>
+{{/page}}
+{{#get "posts" include="tags" limit="all" order="title asc" filter="tags:-news"}}
+
+  <div class="grid post-feed js-post-feed m-b-lg" data-post-feed="grid">
+
+    {{#foreach posts}}
+    {{> post-card 
+      show_img=true 
+      show_access=true
+      show_excerpt=true
+    }}
+    {{/foreach}}
+    {{/get}}
+  </div>
+
+</div>
+

@@ -1,0 +1,139 @@
+.social__item {
+  margin-right: var(--gap-sm);
+  padding: var(--gap-sm);
+  color: var(--color-white);    
+  background-color: var(--color-primary);
+  border-radius: var(--global-radius);
+  transition: all var(--trans-default);
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  @mixin attention {
+    filter: brightness(1.2);
+    color: var(--color-white)!important;
+  }
+
+  &.facebook {
+    background-color: var(--color-facebook);
+  }
+
+  &.twitter {
+    background-color: var(--color-twitter);
+  }
+
+  &.instagram {
+    background-color: var(--color-instagram);
+  }
+
+  &.linkedin {
+    background-color: var(--color-linkedin);
+  }
+
+  &.youtube {
+    background-color: var(--color-youtube);
+  }
+
+  &.github {
+    background-color: var(--color-github);
+  }
+
+  &.rss {
+    background-color: var(--color-rss);
+  }
+}
+
+.social-share {
+  display: flex;
+  align-items: center;
+
+  &__label {
+    text-transform: uppercase;
+  }
+
+  a, button {
+    padding: 0.4em;
+    background-color: transparent;
+    color: var(--color-text-acc-2);
+    border: 1px solid var(--color-text-acc-2);
+    border-radius: 50%;
+    margin-right: var(--gap-sm);
+    cursor: pointer;
+
+    @mixin attention {
+      outline: none;
+      background-color: var(--color-text);
+      color: var(--color-text-reverse);
+      border-color: var(--color-text);
+    }
+  }
+
+  button {
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  .icon {
+    margin: 0 auto;
+    width: 18px;
+    height: 18px;
+  }
+
+  .copy-link,
+  .handle-bookmark {
+    position: relative;
+
+    &.has-tooltip {
+      &:before,
+      &:after {
+        visibility: visible;
+        opacity: 1;
+        z-index: 5;
+        transition: 
+          visibility var(--trans-default),
+          opacity var(--trans-default);
+      }
+    }
+
+    &:before {
+      content: "";
+      position: absolute;  
+      visibility: hidden;
+      opacity: 0;
+      top: auto;
+      right: 50%;
+      bottom: -12px;
+      margin-right: -5px;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid var(--color-bg-reverse);
+      transition: 
+          visibility var(--trans-default),
+          opacity var(--trans-default);
+    }
+
+    &:after { 
+      content: attr(data-label); 
+      position: absolute;    
+      visibility: hidden;
+      opacity: 0;
+      padding: var(--gap-sm) var(--gap);
+      border-radius: var(--global-radius);
+      background-color: var(--color-bg-reverse);
+      color: var(--color-text-reverse);
+      font-size: 0.8rem;
+      font-weight: var(--font-weight-semi-bold);
+      top: 42px;
+      right: 0;
+      transition: 
+        visibility var(--trans-default),
+        opacity var(--trans-default);
+      
+      @media (--mq-md) {
+        right: -18px;
+      }
+    }
+  }
+}

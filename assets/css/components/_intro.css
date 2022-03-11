@@ -1,0 +1,119 @@
+.intro {
+  position: fixed;
+  visibility: visible;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 90;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--global-intro-bg, var(--color-primary));
+  transform: scale(1);
+  transition: 
+    transform var(--trans-duration) cubic-bezier(0.785, 0.135, 0.15, 0.86),
+    opacity var(--trans-duration) cubic-bezier(0.86, 0, 0.07, 1),
+    visibility var(--trans-duration) cubic-bezier(0.86, 0, 0.07, 1),
+    z-index var(--trans-duration) step-start;
+
+  &__close {
+    position: absolute;
+    top: var(--gap);
+    right: var(--gap);    
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(0,0,0,.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (--mq-md) {
+      top: var(--gap-lg);
+      right: var(--gap-lg);    
+      width: 4rem;
+      height: 4rem;
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      content: '';
+      height: 2px;
+      width: 60%;
+      border-top: 3px dotted;
+      color: var(--color-light);
+      transition: transform var(--trans-default);
+    }
+
+    &:before {
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      transform: rotate(-45deg);
+    }
+
+    @mixin attention {
+      background-color: rgba(0,0,0,0.075);
+
+      &:before, &:after {
+        color: var(--color-white);
+      }
+
+      &:before {
+        transform: rotate(135deg);
+      }
+
+      &:after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &__icon {
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgb(255 255 255 / 20%);
+    height: 50px;
+    width: 50px;
+    margin-right: var(--gap);
+  }
+
+  &__content {
+    max-width: 38rem;
+    margin: 0 auto;
+    overflow-y: auto;
+    max-height: 100%;
+  }
+
+  &__cta {
+    border-bottom: 1px dotted;
+
+    @mixin attention {
+      color: var(--color-white);
+    }
+  }
+
+  &__post {
+    background-color: rgba(255,255,255,0.15);
+
+    @mixin attention { 
+      background-color: rgba(255,255,255,0.1);
+    }
+  }
+}
+
+.intro.is-closed,
+[data-intro="hidden"] .intro {
+  /* display: none; */
+  visibility: hidden;
+  transform: scale(0.95);
+  z-index: -1;
+  opacity: 0;
+  transition: 
+    transform var(--trans-duration) cubic-bezier(0.785, 0.135, 0.15, 0.86),
+    opacity var(--trans-duration) cubic-bezier(0.86, 0, 0.07, 1),
+    visibility var(--trans-duration) cubic-bezier(0.86, 0, 0.07, 1),
+    z-index var(--trans-duration) step-end;
+}

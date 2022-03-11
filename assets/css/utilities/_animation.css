@@ -1,0 +1,26 @@
+/* Animations */
+.animate {
+  animation-duration: var(--trans-duration-lg);
+  animation-delay: 0ms;
+  animation-fill-mode: forwards;
+}
+
+.fade-in {
+  animation-name: fadeIn;
+}
+
+.fade-in-down {
+  animation-name: fadeInDown;
+}
+
+.fade-in-left {
+  animation-name: fadeInLeft;
+}
+
+.fade-in-right {
+  animation-name: fadeInRight;
+}
+
+.fade-in-up {
+  animation-name: fadeInUp;
+}

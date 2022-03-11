@@ -1,0 +1,24 @@
+{{!< default}}
+
+{{!-- Page Hero --}}
+{{#page}} 
+  {{> post-hero 
+    wide_img=true
+    full_img=false
+    img_bg=false
+  }}
+{{else}}
+  <div class="hero__content flex flex-col flex-cc m-t-lg m-b-lg">
+    <h1 class="hero__title text-center">{{t "Tags"}}</h1>
+  </div>
+{{/page}}
+
+{{#get "tags" limit="all" include="count.posts" order="count.posts desc"}}
+  <div class="row">
+    {{#foreach tags}}
+      <div class="col-xs-12 col-md-4 col-xl-3 m-b-lg">
+        {{> tag-card show_img=true class="h-100"}}
+      </div>
+    {{/foreach}}
+  </div>
+{{/get}}

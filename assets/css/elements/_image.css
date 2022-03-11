@@ -1,0 +1,11 @@
+/* Image */
+img {
+  max-width: 100%;
+  margin: 0;
+}
+
+[data-color-scheme="dark"] {
+  img {
+    filter: brightness(.8) contrast(1.2);
+  }
+}

@@ -1,0 +1,115 @@
+{{!-- Toc UI --}}
+{{#if aside}}
+  <div class="post-toc border-1 js-post-toc is-aside"> 
+    <div class="post-toc__header flex items-center">
+      <span class="m-r flex-1">{{t "Table of Contents"}}</span>
+      <button class="post-toc__toggle js-toc-toggle">
+        {{> icon name="list" size="sm"}}
+      </button>
+    </div>
+    <div class="post-toc__content js-toc"></div>
+  </div>
+{{else}}
+  {{#contentFor "toc"}}
+    <div class="post-toc__wrapper">
+      <div class="post-toc border-1 js-post-toc"> 
+        <div class="post-toc__header flex items-center">
+          <span class="m-r flex-1">{{t "Table of Contents"}}</span>
+          <button class="post-toc__toggle js-toc-toggle">
+            {{> icon name="list" size="sm"}}
+          </button>
+        </div>
+        <div class="post-toc__content js-toc"></div>
+      </div>
+    </div>
+  {{/contentFor}}
+{{/if}}
+
+{{!-- Toc Script --}}
+{{#contentFor "scripts"}}
+  <script>
+    document.addEventListener('readystatechange', function(event) {
+      if (document.readyState === "complete") {
+        // table of contents toggle
+        const tocToggleBtn = document.querySelector('.js-toc-toggle');
+        const postToc = document.querySelector('.js-post-toc');
+
+        // media query for TOC function
+        const mqSmall = window.matchMedia('(max-width: 767px)');
+        const mqLarge = window.matchMedia('(min-width: 768px)');
+
+        if (tocToggleBtn && postToc) {
+          // if device is large, show the TOC by default
+          if (mqLarge.matches) postToc.classList.add('is-active');
+
+          // open/close the TOC
+          tocToggleBtn.onclick = function(event) {
+            postToc.classList.toggle('is-active');
+          }
+        }
+
+        // get header height as threshold
+        const header = getComputedStyle(document.documentElement)
+                        .getPropertyValue('--global-header-height');
+
+        const threshold = 200;
+        const headerHeight = header ? parseInt(header) + 20 : 100;
+        const headingsOffset = CONFIG.ENABLE_FLOATING_HEADER === true ? headerHeight + 10 : 10;
+
+        /*window.addEventListener('scroll', function(event) {
+          //Scroll back to top
+          const scrollPos = window.scrollY || 
+                            window.scrollTop || 
+                            document.getElementsByTagName('html')[0].scrollTop;
+          scrollPos > threshold ? postToc.classList.add('is-visible') 
+                            : postToc.classList.remove('is-visible');
+        }, false);*/
+
+        if (postToc) {
+          tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: '.js-toc',
+            // Where to grab the headings to build the table of contents.
+            contentSelector: '.js-toc-content',
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h1, h2, h3',
+            // For headings inside relative or absolute positioned containers within content.
+            hasInnerContainers: false,
+            // smooth scroll
+            scrollSmooth: false,
+            // offset
+            headingsOffset: headingsOffset,
+            // onclick event
+            onClick: function(e){ 
+              e.preventDefault();
+              const href = this.getAttribute('href');
+              if (href) {
+                const el = document.querySelector(`#${CSS.escape(href.substring(1))}`);
+                let offset;
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = el.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                //const headerHeight = header ? parseInt(header) + 20 : 100;
+                if(CONFIG.ENABLE_FLOATING_HEADER === true) {
+                  offset = GLOBAL.SCROLL_POS > elementPosition ? headerHeight : 20;
+                } else {
+                  offset = headerHeight;
+                }
+                GLOBAL.SCROLL_POS = elementPosition;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth'
+                });
+              }
+
+              // if on small screen close the TOC when clicking on item
+              if (mqSmall.matches) postToc.classList.remove('is-active');
+            }
+          });
+        }
+      }
+    });
+  </script>
+{{/contentFor}}

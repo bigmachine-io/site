@@ -1,0 +1,10 @@
+{{!-- Blog menu --}}
+<nav class="menu js-menu">
+  {{!-- Main navigation --}}
+  {{navigation}}
+
+  {{!-- Secondary navigation --}}
+  {{#if @site.secondary_navigation}}
+    {{navigation type="secondary"}}
+  {{/if}}
+</nav>

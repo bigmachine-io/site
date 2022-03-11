@@ -1,0 +1,8 @@
+.contact-wrap input:not(.btn),
+.contact-wrap textarea {
+  background-color: var(--color-bg);
+}
+
+.contact-wrap input.btn {
+  width: auto;
+}

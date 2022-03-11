@@ -1,0 +1,26 @@
+/* List */
+ul, ol {
+  margin: 0 0 var(--gap-lg);
+
+  li {
+    line-height: var(--line-height-base);
+
+    a {
+      color: inherit;
+    }
+  }
+
+  ul, ol {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.list {
+  list-style: initial;
+
+  &--unstyled {
+    padding-left: 0;
+    list-style: none;
+  }
+}

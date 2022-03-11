@@ -1,0 +1,134 @@
+/*========================================*/
+/* Settings
+/*========================================*/
+:root {
+  /* Set primary from Ghost Admin accent color */
+  --color-primary: var(--ghost-accent-color, hsl(8, 85%, 60%)); 
+  --color-secondary: hsl(325, 70%, 60%);
+
+  /* neutral colors */
+  --color-black: hsl(0, 0%, 0%);
+  --color-dark: hsl(0, 0%, 10%);
+  --color-dark-acc: hsl(0, 0%, 20%); 
+  --color-grey-darker: hsl(0, 0%, 30%);
+  --color-grey-dark: hsl(0, 0%, 40%);
+  --color-grey: hsl(0, 0%, 50%);
+  --color-grey-light: hsl(0, 0%, 60%);
+  --color-grey-lighter: hsl(0, 0%, 70%);
+  --color-light-acc: hsl(0, 0%, 80%);
+  --color-light: hsl(0, 0%, 90%);
+  --color-white: hsl(0, 0%, 100%);
+
+  /* semantic colors */
+  --color-error: hsl(348, 97%, 60%);
+  --color-success: hsl(141, 53%, 53%);
+  --color-warning: hsl(48, 98%, 67%);
+  --color-info: hsl(204, 86%, 54%);
+
+  /* Other colors */
+  --color-gold: hsl(51, 100%, 50%);
+
+  /* Social colors */
+  --color-facebook: #4267B2;
+  --color-twitter: #1DA1F2;
+  --color-linkedin: #2867B2;
+  --color-instagram: #E1306C;
+  --color-youtube: #FF0000;
+  --color-github: #333333;
+  --color-rss: #EE802F;
+  --color-mail: #DC483D;
+  --color-copy: #34A853;
+
+  /* text & background colors */
+  --color-text: var(--color-dark);
+  --color-text-acc-1: var(--color-dark-acc);
+  --color-text-acc-2: var(--color-grey-darker);
+  --color-text-acc-3: var(--color-grey-dark);
+  --color-text-reverse: var(--color-light);
+
+  --color-bg: hsl(0, 100%, 100%);
+  --color-bg-body: hsl(0, 100%, 100%);
+  --color-bg-acc-1: hsl(0, 0%, 98%);
+  --color-bg-acc-2: hsl(0, 0%, 96%);
+  --color-bg-acc-3: hsl(0, 0%, 94%);
+  --color-bg-reverse: var(--color-dark);
+  --color-bg-alpha-0: hsla(0, 0%, 100%, 0);
+  --color-bg-alpha-25: hsla(0, 0%, 100%, 0.25);
+  --color-bg-alpha-50: hsla(0, 0%, 100%, 0.50);
+  --color-bg-alpha-75: hsla(0, 0%, 100%, 0.75);
+
+  --color-neutral: var(--color-grey);
+  --color-border: hsl(0, 0%, 92%);
+  --color-outline: hsl(217, 99%, 65%);
+
+  /* Typography */
+  --font-serif: Georgia, Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-mono: Consolas, Monaco,  monospace;
+  --font-size-base: 1rem;
+  --font-weight-thin: 100;
+  --font-weight-extra-light: 200;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
+  --font-weight-black: 900;
+  --line-height-base: 1.6;
+
+  /* Animation */
+  --trans-name: ease-in-out;
+  --trans-duration: 400ms;
+  --trans-duration-lg: 800ms;
+  --trans-duration-xl: 1200ms;
+  --trans-delay: 100ms;
+  --trans-default: var(--trans-duration) var(--trans-name);
+
+  /* Spacing */
+  --gap: 1em;
+  --gap-rem: 1rem;
+  --gap-xs: calc(var(--gap) * 0.25);
+  --gap-sm: calc(var(--gap) * 0.5);
+  --gap-lg: calc(var(--gap) * 2);
+  --gap-xl: calc(var(--gap) * 4);
+
+  /* Breakpoints */
+  --brakepoint-sm: 36em;
+  --brakepoint-md: 48em;
+  --brakepoint-lg: 62em;
+  --brakepoint-xl: 75em;
+
+  /* Grid-system */
+  --gutter-w: 1rem;
+  --outer-m: 1rem;
+  --gutter-comp: calc(var(--gutter-w) * -1);
+  --half-gutter-w: calc(var(--gutter-w) * 0.5);
+  --container-sm: calc(var(--brakepoint-sm) + var(--gutter-w));
+  --container-md: calc(var(--brakepoint-md) + var(--gutter-w));
+  --container-lg: calc(var(--brakepoint-lg) + var(--gutter-w));
+  --container-xl: calc(var(--brakepoint-xl) + var(--gutter-w));
+}
+
+/* Changes for dark theme */
+[data-color-scheme="dark"] {
+  --color-text: var(--color-light);
+  --color-text-acc-1: var(--color-light-acc);
+  --color-text-acc-2: var(--color-grey-lighter);
+  --color-text-acc-3: var(--color-grey-light);
+  --color-text-reverse: var(--color-dark);
+
+  --color-bg: hsl(0, 0%, 8%);
+  --color-bg-body: hsl(0, 0%, 8%);
+  --color-bg-acc-1: hsl(0, 0%, 10%);
+  --color-bg-acc-2: hsl(0, 0%, 12%);
+  --color-bg-acc-3: hsl(0, 0%, 15%);
+  --color-bg-reverse: var(--color-light);
+  --color-bg-alpha-0: hsla(0, 0%, 0%, 0);
+  --color-bg-alpha-25: hsla(0, 0%, 0%, 0.25);
+  --color-bg-alpha-50: hsla(0, 0%, 0%, 0.50);
+  --color-bg-alpha-75: hsla(0, 0%, 0%, 0.75);
+
+  --color-neutral: var(--color-grey);
+  --color-border: hsl(0, 0%, 20%);
+}

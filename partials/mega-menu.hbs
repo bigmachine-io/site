@@ -1,0 +1,68 @@
+{{!-- Site footer --}}
+
+<style>
+  .footer .nav a {
+  font-size: 15px;
+}
+</style>
+
+<section class="footer homes" style="padding:24px">
+  <div class="container" style="mx-auto">
+    {{!-- Footer Top --}}
+    <div class="footer__top">
+      
+      <div class="row">
+        <div class="col-xs-12 col-md-4" style="text-align: center;">
+          <div class="row">
+            <div class="col-xs-6">
+              <a href="/products/the-imposters-handbook">
+                <img src="/assets/img/second_edition_cover.jpg" alt="" style="min-width:60px;">
+              </a>
+                </div>
+                <div class="col-xs-6">
+              <a href="/products/a-curious-moon">
+                <img src="/assets/img/curious_moon.jpg" alt="" style="min-width:60px;">
+              </a>
+            </div>
+          </div>
+
+
+          
+        </div>
+
+
+        <div class="col-xs-12 col-md-2 footer__el">
+          <span class="footer__title">Topics</span>
+          <ul class="nav secondary">
+            {{#get "tags"}}
+            {{#foreach tags}}
+            <li class="nav-home-sidebar">
+              <a href="{{url}}">{{name}}</a>
+            </li>
+                
+            {{/foreach}}
+            {{/get}}
+          </ul>
+        </div>
+        
+        <div class="col-xs-12 col-md-4">
+          {{!-- Secondary --}}
+          <span class="footer__title">Courses</span>
+          {{#get "pages" include="tags" filter="tags:['production']" order="published_at desc"}}
+          {{#foreach pages}}
+            <a href="{{url}}">
+              <img src="{{img_url feature_image}}" alt="" style="width:180px;border-radius:8px">
+            </a>
+          {{/foreach}}
+        {{/get}}
+        </div>
+
+        <div class="col-xs-12 col-md-2">
+          <span class="footer__title">Main</span>
+          {{!-- Main --}}
+          {{navigation}}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

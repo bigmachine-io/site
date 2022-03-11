@@ -1,0 +1,10 @@
+ {{!-- Tag list at the end --}}
+{{#if tags}}
+  <div class="tag-list flex flex-wrap items-center m-b-sm">
+    {{#foreach tags}}
+      <a class="tag-list__item tag-{{slug}} m-r-sm m-b-sm" href="{{url}}" aria-label="{{name}}"
+        {{#if accent_color}} style="--color-accent: {{accent_color}}"{{/if}}
+      >{{name}}</a>
+    {{/foreach}}
+  </div>
+{{/if}}

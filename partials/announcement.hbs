@@ -1,0 +1,28 @@
+{{!-- Announcement posts --}}
+{{#is "post"}}
+  {{#get "posts" filter="id:-{{post.id}}+tag:hash-announcement" limit="1" as |announce|}}
+    {{#if announce}}
+      {{#foreach announce}}
+        <div class="announcement js-announce">
+          <h5 class="announcement__title">{{title}}</h5>
+          {{#link href=(url) class="announcement__link"}}
+            {{t "Learn more"}}
+          {{/link}}
+        </div>
+      {{/foreach}}
+    {{/if}}
+  {{/get}}
+{{else}}
+  {{#get "posts" filter="tag:hash-announcement" limit="1" as |announce|}}
+    {{#if announce}}
+      {{#foreach announce}}
+        <div class="announcement js-announce">
+          <h5 class="announcement__title">{{title}}</h5>
+          {{#link href=(url) class="announcement__link"}}
+            {{t "Learn more"}}
+          {{/link}}
+        </div>
+      {{/foreach}}
+    {{/if}}
+  {{/get}}
+{{/is}}

@@ -1,0 +1,74 @@
+{{!< default}}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+  <span class="is-rel w-100 display-block"><span class="border-top-1 is-abs w-100"></span></span>
+  <div class="m-0-auto">
+    {{!-- Hero --}}
+    {{> post-hero 
+      wide_img=false
+      full_img=true
+      img_bg=false
+    }}
+
+    <div class="row">
+      {{!-- TOC --}}
+      <div class="col-xs-12 col-lg-3">
+        {{#if access}}
+          {{> toc aside=true}}
+        {{/if}}
+      </div>
+
+      {{!-- Post content --}}
+      <div class="col-xs-12 col-lg-6">
+        <article class="{{post_class}} content-wrap post-access-{{visibility}} no-overflow">
+          <div class="content js-toc-content">
+            {{#if custom_excerpt}}
+              <p class="context-excerpt text-lg">
+                {{custom_excerpt}}
+              </p>
+            {{/if}}
+            
+            {{!-- Main post content --}}
+            {{content}}
+          </div>
+        </article>
+        
+        {{!-- Elements for posts (not pages) --}}
+        {{#is "post"}}
+          {{#if access}}
+            {{!-- Post tags & post sharing --}}
+            <div class="post-footer content-wrap p-t-lg m-b">
+              {{!-- Post tags --}}
+              {{> tag-list}}
+
+              <span class="flex-1"></span>
+
+              {{!-- Social sharing --}}
+              {{> social-share}}
+            </div>
+          {{/if}}
+        {{/is}}
+      </div>
+
+      {{!-- Sidebar --}}
+      <div class="col-xs-12 col-lg-3">
+        {{#if access}}
+          {{> sidebar}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+  {{!-- Elements for posts (not pages) --}}
+  {{#is "post"}}
+    {{!-- Include Comments --}}
+    {{#if access}}
+      {{> comments}}
+    {{/if}}
+
+    {{!-- Related posts --}}
+    {{> related-posts}}
+  {{/is}}
+
+{{/post}}

@@ -1,0 +1,28 @@
+{{!-- Content preview --}}
+<div class="post-sneak-peek">
+  {{{html}}}
+</div>
+
+{{!-- Post Access CTA --}}
+<div class="post-access-cta p-lg text-center border-1 {{visibility}}">
+  <h3>{{t "Watch the full video..."}}</h3>
+  {{#has visibility="members"}}
+    <p class="text-acc-3">
+    {{t "Sign up now to get access to all members-only posts."}}
+    </p>  
+  {{/has}}
+  {{#has visibility="paid"}}
+    <p class="text-acc-3">
+      {{t "Sign up now to get access to all paid posts."}}
+    </p>
+  {{/has}}
+  {{#link href="/signup/" class="btn btn--primary m-b"}}{{t "Subscribe"}}{{/link}}
+  {{!-- Portal link --}}
+  {{!-- {{#link href="/signup/" data-portal="signup" class="btn btn--primary m-b"}}{{t "Subscribe"}}{{/link}} --}}
+  <div class="small">
+    <span>{{t "Already have an account?"}}</span> 
+    {{#link href="/signin/" class="post-access-alt link-no-style"}}{{t "Sign in"}}{{/link}}
+    {{!-- Portal link --}}
+    {{!-- {{#link href="/signin/" data-portal="signin" class="post-access-alt link-no-style"}}{{t "Sign in"}}{{/link}} --}}
+  </div>
+</div>

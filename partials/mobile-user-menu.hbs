@@ -1,0 +1,61 @@
+<div class="user-menu js-user-menu">
+  {{!-- Member Links --}}
+  {{#if @member}}
+    <div class="member-user">
+      <div class="member-info flex flex-col">
+        <div class="member-name">{{@member.name}}</div>
+        <span class="member-email">{{@member.email}}</span>
+      </div>
+    </div>
+    
+    {{!-- Upgrade link --}}
+    {{#unless @member.paid}}
+      {{#link href="/membership/" class="upgrade-link"}}
+        {{> icon name="trending-up" size="xs"}}{{t "Upgrade"}}
+      {{/link}}
+    {{/unless}}
+
+    {{!-- Account link --}}
+    {{#link href="/account/" class="account-link"}}
+      {{> icon name="user" size="xs"}}{{t "Account"}}
+    {{/link}}
+    
+    {{!-- Account portal --}}
+    {{!-- {{#link href="/account/" data-portal="account" class="account-link"}}
+      {{> icon name="user" size="xs"}}{{t "Account"}}
+    {{/link}} --}}
+
+    {{!-- Sign out link --}}
+    {{#link href="javascript:" data-members-signout="" class="signout-link"}}
+      {{> icon name="logout" size="xs"}}{{t "Sign out"}}
+    {{/link}}
+  {{else}}
+    {{!-- Sign up link --}}
+    {{#link class="signup-link" href="/signup/"}}
+      {{> icon name="arrow-up-right" size="xs"}}{{t "Sign up"}}
+    {{/link}}
+
+    {{!-- Sign up portal --}}
+    {{!-- {{#link class="signup-link" data-portal="signup" href="/signup/"}}
+      {{> icon name="arrow-up-right" size="xs"}}{{t "Sign up"}}
+    {{/link}} --}}
+
+    {{!-- Sign in link --}}
+    {{#link class="signin-link" href="/signin/"}}
+      {{> icon name="login" size="xs"}}{{t "Sign in"}}
+    {{/link}}
+
+    {{!-- Sign in portal --}}
+    {{!-- {{#link class="signin-link" data-portal="signin" href="/signin/"}}
+      {{> icon name="login" size="xs"}}{{t "Sign in"}}
+    {{/link}} --}}
+  {{/if}}
+
+  {{!-- Dark/Light Theme --}}
+  <button class="btn--toggle btn-theme-toggle js-theme-toggle" 
+    title="{{t "Theme Toggle"}}" aria-label="{{t "Theme Toggle"}}">
+    {{> icon name="brightness-up" size="xs"}}
+    {{> icon name="brightness-down" size="xs"}}
+    <span>{{t "Theme"}}</span>
+  </button>
+</div>

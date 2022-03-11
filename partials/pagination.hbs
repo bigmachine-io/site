@@ -1,0 +1,9 @@
+<nav class="pagination flex items-center m-t-lg" role="navigation">
+  {{#if prev}}
+    {{#link href=(page_url prev) class="newer-posts btn btn--dark btn--xs m-r"}}&larr; {{t "Previous"}}{{/link}}
+  {{/if}}
+  <span class="page-number">{{page}}/{{pages}}</span>
+  {{#if next}}
+    {{#link href=(page_url next) class="older-posts btn btn--dark btn--xs m-l"}}{{t "Next"}} &rarr;{{/link}}
+  {{/if}}
+</nav>

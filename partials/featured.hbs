@@ -1,0 +1,22 @@
+{{!-- Featured posts --}}
+{{#get "posts" filter="featured:true" include="authors,tags" limit="all" as |featured|}}
+  {{#if posts}}
+  <div class="featured-wrapper bg-acc-1">
+    <div class="featured-control flex items-center">
+      <button class="m-r-sm js-featured-prev" 
+        aria-label="{{t "Previous"}}" title="{{t "Previous"}}">
+        {{> icon name="arrow-left" size="sm"}}
+      </button>
+      <button class="js-featured-next" 
+        aria-label="{{t "Next"}}" title="{{t "Next"}}">
+        {{> icon name="arrow-right" size="sm"}}
+      </button>
+    </div>
+    <div class="featured-feed js-featured-feed">
+      {{#foreach featured}}
+        {{> featured-card}}
+      {{/foreach}}
+    </div>
+  </div>
+  {{/if}}
+{{/get}}

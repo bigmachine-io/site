@@ -1,0 +1,44 @@
+routes:
+  # Members
+  /signup/: 
+    template: members/signup
+    # data: page.signup # When active data will be taken from the  "/signup/" page
+  /signin/: 
+    template: members/signin
+    # data: page.signin # When active data will be taken from the  "/signin/" page
+  /account/: 
+    template: members/account 
+    # data: page.account # When active data will be taken from the  "/account/" page
+  /membership/:
+    template: members/membership
+    # data: page.membership # When active data will be taken from the  "/membership/" page
+  
+  # Pages
+  /free/:
+    template: free
+  /members/:
+    template: members
+  /downloads/:
+    template: downloads
+  /everything/:
+    template: archive
+  /authors/:
+    template: authors
+    data: page.authors # When active data will be taken from the  "/authors/" page
+  /tags/:
+    template: tags
+    data: page.tags # When active data will be taken from the  "/tags/" page
+
+collections:
+  /products/:
+    permalink: /products/{slug}/
+    filter: tags:hash-products
+    template: post
+  /:
+    permalink: /{primary_tag}/{slug}/
+    template: index
+    filter: tags:-hash-hide
+  
+taxonomies:
+  tag: /collections/{slug}/
+  author: /author/{slug}/

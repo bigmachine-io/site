@@ -1,0 +1,73 @@
+.tag-card {
+  --color-accent: var(--color-grey);
+  height: 100%;
+  min-height: 16rem;
+  border-radius: var(--global-radius);
+  overflow: hidden;  
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  background-color: var(--color-accent);
+
+  @mixin attention {
+    .tag-card__name,
+    .tag-card__count {
+      color: var(--color-primary);
+    }
+  }
+
+  &__media {
+    position: relative;
+    padding-top: 120%;
+    width: 100%;
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: var(--global-radius);
+  }
+
+  &__content {
+    width: calc(100% - 2em);
+    display: flex;
+    bottom: 0;
+    padding: 1em;
+    margin: 1em;
+    background-color: var(--color-bg);
+    border-radius: var(--global-radius);
+  }
+
+  &__name, &__count {
+    margin: 0;
+    line-height: 1;
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-semi-bold);
+  }
+}
+
+.tag-list {
+  &__item {
+    --color-accent: var(--color-text-acc-3);
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-semi-bold);
+    line-height: 1.2;
+    padding: var(--gap-sm) var(--gap);
+    border: none;
+    box-shadow: none;
+    box-shadow: inset 0 0 0 1px var(--color-accent);
+    background-color: var(--color-bg-acc-1);
+    border-radius: var(--global-radius);
+    color: var(--color-accent);
+
+    @mixin attention {
+      box-shadow: inset 0 0 0 2px var(--color-accent);
+    }
+  }
+}

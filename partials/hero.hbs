@@ -1,0 +1,36 @@
+<style>
+  .content-wrap {
+    max-width: 902px;
+    margin:auto
+  }
+  p, li {
+    font-size: 18px;
+  }
+</style>
+
+<div class="hero hero-cta flex {{#if feature_image}} m-b-xl p-t-lg col-2 {{else}} flex flex-cc bg-gradient has-color-bg{{/if}}{{#if class}} {{class}}{{/if}}"
+>
+  <div class="hero__content">
+    <h1 class="hero__title p-t-lg p-x-lg">{{title}}</h1>
+    <p>
+      {{{custom_excerpt}}}
+    </p>
+  </div>
+
+  {{!-- Regular user content, the site cover image is used --}}
+  {{#if feature_image}}
+    <div class="hero__media striped" >
+      <img class="lazyload hero__img " 
+          data-srcset="{{img_url feature_image size="xs"}} 100w,
+                  {{img_url feature_image size="s"}} 300w,
+                  {{img_url feature_image size="m"}} 600w,
+                  {{img_url feature_image size="l"}} 1000w"
+          srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-sizes="auto"
+          data-src="{{img_url feature_image size="m"}}"
+          src="{{img_url feature_image size="xxs"}}"
+          alt="{{title}}"/>
+    </div>
+  {{/if}}
+</div>
+

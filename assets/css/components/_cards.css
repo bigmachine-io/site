@@ -1,0 +1,26 @@
+.card {
+  background-color: var(--color-bg);
+  border-radius: var(--global-radius);
+  box-shadow: 0 0 0 1px var(--color-border); 
+  overflow: hidden;
+
+  &__title {
+    font-size: 1.2rem;
+  }
+
+  &__description {
+    color: var(--color-text-acc-3);
+    margin-bottom: var(--gap);
+  }
+
+  &__cta {
+    align-self: flex-start;
+    background-color: var(--color-bg-reverse);
+    color: var(--color-text-reverse);
+
+    @mixin attention {
+      color: var(--color-white);
+      background-color: var(--color-primary);
+    }
+  }
+}

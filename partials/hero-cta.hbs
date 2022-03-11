@@ -1,0 +1,60 @@
+<div class="hero hero-cta flex{{#if img_bg}} flex-cc has-img-bg{{else}} p-t-lg col-2 border-top-1{{/if}}{{#unless @site.cover_image}} flex-cc has-color-bg bg-gradient{{/unless}}{{#if class}} {{class}}{{/if}}">
+  {{!-- Hero Content --}}
+  <div class="hero__content">
+    {{#if @member.paid}} {{!-- Content for paying members --}}
+      <h1 class="hero__title">{{t "Welcome back"}}{{#if @member.name}}, {{@member.name}}{{/if}}!</h1>
+      <div class="hero__descr text-acc-3 m-b">
+        {{#if cancel_at_period_end}}
+          <span class="color-error fw-600">{{t "Your subscription will expire on"}} {{date current_period_end format="DD MMM YYYY"}}.</span>
+          {{t "If you change your mind in the meantime you can turn auto-renew back on to continue your subscription."}}
+        {{else}}
+          {{t "Currently, you have an active account to all areas."}}
+          {{t "You're all set, but if you need any help, get in touch with us and we'd be happy to help."}}
+        {{/if}}
+      </div>
+      <a href="/account/" class="btn btn--primary">{{t "Account"}}</a>
+    </button>
+    {{else if @member}} {{!-- Content for free members --}}
+      <h1 class="hero__title">{{t "Welcome back"}}{{#if @member.name}}, {{@member.name}}{{/if}}!</h1>
+      <div class="hero__descr text-acc-3 m-b">
+        {{t "Currently, you are subscribed to free updates."}} 
+        {{t "Unlock full access to see the entire library of members-only content & updates by subscribing to a paid plan."}}
+      </div>
+      <a href="/account/" class="btn btn--primary">{{t "Upgrade"}}</a>
+    {{else}} {{!-- Content for regular users --}}
+      <h1 class="hero__title">{{#if @custom.hero_headline}}{{@custom.hero_headline}}{{else}}{{t "Sign up to {sitetitle}!" sitetitle=@site.title}}{{/if}}</h1>
+      <div id="form-input-label" class="hero__descr text-acc-3 m-b">
+        {{#if @custom.hero_description}}{{@custom.hero_description}}{{else}}{{@site.description}}{{/if}}
+      </div>
+      {{#if @custom.hero_form}}
+        {{> subscribe-form 
+          form_type="signup"
+          button_text=(t 'Join now') 
+          button_class="btn--gradient"
+        }}
+        <div class="hero__details flex text-sm text-acc-3 m-t-sm">
+          {{!-- Show the number of premium posts (members + paid) --}}
+          {{#get "posts" limit="1" filter="visibility:-public"}}
+            <span class="text-sm">{{t "Join to get access to {nr_premium_posts}+ premium posts." nr_premium_posts=pagination.total}}</span>
+          {{/get}}
+        </div>
+      {{/if}}
+    {{/if}}
+  </div>  
+
+  {{!-- Site cover image --}}
+  {{#if @site.cover_image}}
+    <div class="hero__media{{#if img_bg}} is-bg{{/if}}">
+      <img class="lazyload hero__img" 
+          data-srcset="{{img_url @site.cover_image size="xs"}} 100w,
+                  {{img_url @site.cover_image size="s"}} 300w,
+                  {{img_url @site.cover_image size="m"}} 600w,
+                  {{img_url @site.cover_image size="l"}} 1000w"
+          srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-sizes="auto"
+          data-src="{{img_url @site.cover_image size="m"}}"
+          src="{{img_url @site.cover_image size="xxs"}}"
+          alt="{{@site.description}}"/>
+    </div>
+  {{/if}}
+</div>

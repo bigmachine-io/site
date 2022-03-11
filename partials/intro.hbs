@@ -1,0 +1,53 @@
+{{!-- Personal profile based on profile page--}}
+{{#unless member}}
+<div class="intro js-intro">
+  <button class="intro__close js-intro-close" aria-label="{{t "Close"}}"></button>
+  <div class="intro__content p-lg">
+    <div class="intro__brand flex items-center m-b">
+      {{#if @site.icon}}
+        {{!-- Site logo --}}
+        <img class="intro__icon"
+          src="{{img_url @site.icon}}"
+          alt="{{@site.title}}"/>
+      {{/if}}
+      {{!-- Site Title --}}
+      <h1 class="intro__title text-center text-30 fw-700 m-0 p-0 color-white">{{#if @custom.hero_headline}}{{@custom.hero_headline}}{{else}}{{@site.title}}{{/if}}</h1>
+    </div>
+
+    {{!-- Description --}}
+    <div id="form-input-label" class="intro__descr color-light text-12 fw-500 m-b">
+      {{@site.description}} {{!-- Use the site description or add your own text --}}
+    </div>
+
+    {{!-- Subscrbe form --}}
+    {{> subscribe-form 
+      form_class="is-joined"
+      button_text=(t 'Join now') 
+      button_class="btn--white"
+    }}
+    <div class="hero__details flex text-sm text-acc-3 m-t-sm m-b-lg">
+      {{!-- Show the number of premium posts (members + paid) --}}
+      {{#get "posts" limit="1" filter="visibility:-public"}}
+        <span class="text-sm fw-500 color-light">{{t "Join to get access to {nr_premium_posts}+ premium posts." nr_premium_posts=pagination.total}}</span>
+      {{/get}}
+    </div>
+
+    {{!-- Show latest post --}}
+    {{#get "posts" limit="1"}}
+      {{#foreach posts}}
+        {{#link href=(url) class="intro__post p m-b radius fw-700 flex flex-col js-intro-post"}}
+          <span class="color-white text-16">#{{../pagination.total}} {{title}}</span>
+          <time class="color-light" datetime="{{date format='YYYY-MM-DD'}}">
+            {{date published_at format="MMMM DD, YYYY"}}
+          </time>
+        {{/link}}
+      {{/foreach}}
+    {{/get}}
+
+    {{!-- Link to archive --}}
+    {{#link href="/archive/" class="intro__cta fw-500 color-light js-intro-archive"}}
+      {{t "Here's an archive of all the previous issues."}} &rarr;
+    {{/link}}
+  </div>
+</div>
+{{/unless}}

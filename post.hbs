@@ -1,0 +1,80 @@
+{{!< default}}
+<style>
+  .content-wrap {
+    max-width: 902px;
+
+  }
+  p, li {
+    font-size: 18px;
+  }
+</style>
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+  <span class="is-rel w-100 display-block"><span class="border-top-1 is-abs w-100"></span></span>
+
+    {{!-- Hero --}}
+    {{> hero-product 
+      wide_img=false
+      full_img=true
+      img_bg=false
+    }}
+
+    <div class="row">
+      <div class="col-xs-12 col-lg-8{{#unless access}} col-lg-offset-2{{/unless}}">
+        <article class="{{post_class}} content-wrap post-access-{{visibility}} no-overflow">
+          <div class="content">
+            {{!-- Main post content --}}
+            {{content}}
+          </div>
+        </article>
+
+        {{!-- Elements for posts (not pages) --}}
+        {{#is "post"}}
+          {{#if access}}
+            {{!-- Post tags & post sharing --}}
+            <div class="post-footer content-wrap p-t-lg m-b">
+
+              <span class="flex-1"></span>
+
+              {{!-- Social sharing --}}
+              {{> social-share}}
+            </div>
+          {{/if}}
+        {{/is}}
+      </div>
+
+
+        <div class="col-xs-12 col-lg-4 sidebar__wrapper">
+          {{> sidebar}}
+        </div>
+
+
+  </div>
+
+  {{!-- Elements for posts (not pages) --}}
+
+    {{!-- Include Comments --}}
+    {{#if access}}
+      {{> comments}}
+    {{/if}}
+
+
+    {{!-- Related posts --}}
+    <div class="grid post-feed js-post-feed m-b-lg" data-post-feed="grid">
+     {{#prev_post}}
+      {{> post-card 
+        show_img=true 
+        show_access=true
+        show_excerpt=true
+      }}
+      {{/prev_post}}
+
+      {{#next_post}}
+      {{> post-card 
+        show_img=true 
+        show_access=true
+        show_excerpt=true
+      }}
+      {{/next_post}}
+    </div>
+{{/post}}

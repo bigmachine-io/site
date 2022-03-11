@@ -1,0 +1,31 @@
+{{!-- Blog search --}}
+<div class="search js-search">
+  <div class="search__hdr">
+    <form action="/" method="get" class="search__form items-center bg-acc-2 js-search-form">
+      <input type="text" id="ghost-search-field" class="search__input" aria-label="{{t "Search"}}"
+        title="{{t "Search"}}" placeholder="{{t "Search"}}" autocomplete="off" required/>
+      <div class="search__icon">
+        {{> icon name="search" size="sm"}}
+      </div>
+    </form>
+    <button class="search--close bg-acc-2 js-search-close"
+      title="{{t "Close"}}" aria-label="{{t "Close"}}">
+        {{> icon name="x" size="sm"}}
+    </button>
+    <div class="search__info">
+      <span class="js-search-info">{{t "Please enter at least 3 characters"}}</span>
+      <span class="js-search-number m-r-xs fw-700 color-primary is-hidden">0</span><span class="js-search-notify is-hidden fw-600">{{t "results found"}}</span>
+    </div>
+  </div>
+  <div class="search-helper">
+    {{#get "tags" limit="6" include="count.posts" order="count.posts desc"}}
+      {{#foreach tags}}
+        <button class="search__tag m-r-sm m-b-sm js-search-tag" aria-label="{{name}}"
+          {{#if accent_color}}style="--color-accent:{{accent_color}}"{{/if}}>{{name}}</button>
+      {{/foreach}}
+    {{/get}}
+  </div>
+  <div class="search-content">
+    <div class="search-result js-search-results" id="ghost-search-results"></div>
+  </div>
+</div>

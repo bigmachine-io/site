@@ -1,0 +1,86 @@
+{{!< default}}
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-functions.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyC1KRpvlqZqihbOmf5R828SGui0WdF1ssE",
+  authDomain: "bigmachine.firebaseapp.com",
+  databaseURL: "https://bigmachine.firebaseio.com",
+  projectId: "project-8588976765518720764",
+  storageBucket: "project-8588976765518720764.appspot.com",
+  messagingSenderId: "153018044002",
+  appId: "1:153018044002:web:a80d87e2f146fdfe90cb3b",
+  measurementId: "G-6N0W4J2M0B"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+</script>
+{{!-- Personal profile based on profile page--}}
+{{#get "pages" filter="slug:your-downloads" limit="1" as |profile|}}
+
+  {{!-- Show the profile --}}
+  {{#foreach profile}}
+
+    {{> hero-product }}
+   <div class="signup-box__content m-b-xl" style="margin-left: 0; padding-left:0" id="downloadApp">
+      <form class="subscribe-form flex flex-col" v-on:submit.prevent="sendOrderLink">
+        <div class="subscribe-box w-100">
+          <input data-members-email
+            v-model="orderEmail"
+            type="email" autocomplete="off" placeholder="The Order Email" 
+            required/> 
+          <button class="btn w-100 p btn--gradient">
+            <span v-if="sending != 'orders'">Send It!</span>
+            <i class="fas fa-sync fa-spin"  v-if="sending == 'orders'"></i>
+          </button>
+          
+        </div>
+    </form>
+    <div class="alert info" v-if="successMessage && !errorMessage">
+      ((successMessage))
+    </div>
+    <div class="alert error"  v-if="errorMessage && !successMessage">
+      ((errorMessage))
+    </div>
+  </div>
+  {{/foreach}}
+{{/get}}
+
+
+<script>
+  const authApp = new Vue({
+    delimiters: ["((", "))"],
+    el: "#downloadApp",
+    data: {
+
+      name: "",
+      email: null,
+      orderEmail: null,
+      errorMessage: null,
+      successMessage: null,
+      sending: null
+    },
+    methods: {
+
+      sendOrderLink: async function () {
+        if (!this.orderEmail) {
+          this.errorMessage = "Can't send an email if you don't provide one"
+          return;
+        }
+        this.sending = "orders"
+        const emailFn = await firebase.functions().httpsCallable("emailOrders");
+        const res = await emailFn({ email: this.orderEmail });
+        this.sending = false;
+        if (res.data.success) {
+          this.successMessage = "Email sent! You should see it in a minute or two."
+        } else {
+          this.errorMessage = res.message;
+        }
+      },
+    }
+  })
+
+</script>

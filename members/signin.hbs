@@ -1,0 +1,27 @@
+{{!< ../default}}
+
+<div class="flex flex-cc flex-1 border-top-1">
+  <div class="signin-box flex flex-cc">
+    {{#if @member}}
+
+      {{!-- Logged in: Redirect to home --}}
+      <script>window.location = '{{@site.url}}';</script>
+
+    {{else}}
+      <div class="signin-box__content border-1">
+        {{!-- Not logged in: Signin form --}}
+        <h1 class="signin-box__title">{{#page}}{{title}}{{else}}{{t "Sign in"}}{{/page}}</h1>
+        <p id="form-input-label">{{t "Sign into your account again for full access."}}</p>
+        {{> subscribe-form 
+          form_type="signin" 
+          button_text=(t 'Send login link')
+        }}
+        <p class="m-t-lg m-0 text-center">
+          <small>{{t "Don't have an account yet?"}}
+            {{#link href="/signup/"}}{{t "Sign up"}}{{/link}}
+          </small>
+        </p>
+      </div>
+    {{/if}}
+  </div>
+</div>

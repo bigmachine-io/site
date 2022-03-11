@@ -1,0 +1,10 @@
+.progress-bar {
+  visibility: var(--global-progress-bar);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: var(--scroll);
+  z-index: 60;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+}

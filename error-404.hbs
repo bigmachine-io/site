@@ -1,0 +1,34 @@
+{{!< default}}
+
+{{!-- Page 404 --}}
+<div class="page__hdr flex flex-cc flex-col m-b-lg p-t-lg border-top-1">
+  <h1 class="m-b-xs">{{statusCode}} - {{message}}</h1>
+  <div class="err m-b">
+    <div class="err__descr m-b text-acc-3 text-center">
+      {{t "Something went wrong! We can't seem to find the page you are looking for."}}
+    </div>
+
+    {{!-- Links to home and contact page --}}
+    <div class="err__links flex flex-cc">
+      {{#link href="/" class="btn btn--filled m-r"}}{{t "Home"}}{{/link}}
+      {{#link href="javascript:history.back()" class="btn btn--filled m-r"}}{{t "Back"}}{{/link}}
+    </div>
+  </div>
+</div>
+
+<div class="err__recommend">
+  <div class="section__title m-b">{{t "Latest posts"}}</div>
+  
+  {{#get "posts" limit="3" include="tags,authors"}}
+    <div class="grid auto post-feed js-post-feed m-b-lg">
+      {{#foreach posts}}
+        {{> post-card 
+          show_img=false 
+          show_access=false
+          show_excerpt=true
+          class="col"
+        }}
+      {{/foreach}}
+    </div>
+  {{/get}}
+</div>

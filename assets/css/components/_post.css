@@ -1,0 +1,129 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--color-text-acc-1);
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  &-wrap {
+    max-width: calc(40 * var(--gap-rem));
+    margin: 0 auto;
+    margin-bottom: var(--gap-lg);
+  }
+
+  a:not([class*="kg-"],[class*="btn"],[class*="link-no-style"]) { 
+    color: var(--color-primary); 
+    border-bottom: 1px solid var(--color-primary);
+
+    &:visited {
+      filter: brightness(0.8);
+    }
+
+    @mixin attention {
+      border-bottom-width: 2px;
+    }
+  }
+
+  >*:not(h1,h2,h3,h4,h5,h6)+ol,
+  >*:not(h1,h2,h3,h4,h5,h6)+ul {
+    margin-top: calc(-1 * var(--gap));
+  }
+
+  hr {
+    --color-border: hsl(0,0%,85%);
+    position: relative;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-border);
+    margin: var(--gap-lg) auto;
+
+    &:before, &:after {
+      position: absolute;
+      content: "";
+      width: inherit;
+      height: inherit;
+      background-color: inherit;
+      border-radius: inherit;
+    }
+
+    &:before {
+      margin-left: -40px;
+    }
+
+    &:after {
+      margin-left: 40px;
+    }
+  }
+
+  * + hr {
+    margin-top: var(--gap);
+  }
+
+  hr + *:not(h1,h2,h3,h4,h5,h6) {
+    margin-top: var(--gap);
+  }
+
+  details { width: 100%; }
+
+  pre {
+    width: 100%;
+    margin-top: 0!important;
+    margin-bottom: var(--gap-lg)!important;
+  }
+}
+
+.js-toc-content {
+  h1[id],
+  h2[id],
+  h3[id],
+  h4[id] {
+    outline: none;
+  }
+}
+
+.post-sneak-peek {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+
+  &:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: -1em;
+    width: calc(100% + 2em);
+    height: var(--global-content-preview-fading);
+    background: linear-gradient(var(--color-bg-alpha-0), var(--color-bg-body) 85%);
+  }
+}
+
+.post-access-cta {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-bg);
+  border-radius: var(--global-radius);
+
+  .post-access-alt {
+    text-decoration: underline;
+  }
+}
+
+.post-footer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  @media (--mq-md) {
+    flex-direction: row;
+  }
+}
+
+[data-color-scheme="dark"] .content hr {
+  --color-border: hsl(0,0%,25%);
+}

@@ -1,0 +1,33 @@
+.announcement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gap-sm);
+  height: var(--global-announcement-height);
+  background-color: var(--color-bg-reverse);
+  color: var(--color-text-reverse);
+
+  @media (--mq-md) {
+    padding: var(--gap);
+  }
+
+  h5 { 
+    font-size: 0.9rem; 
+    margin: 0; 
+    margin-right: var(--gap);
+  }
+
+  a {
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-semi-bold);
+    padding: var(--gap-xs) var(--gap);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border-radius: var(--global-radius);
+    min-width: 6rem;
+
+    @mixin attention {
+      color: var(--color-primary);
+    }
+  }
+}

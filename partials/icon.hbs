@@ -1,0 +1,6 @@
+{{!-- Icon partial to include icons easily --}}
+<i class="icon icon-{{name}}{{#if size}} icon--{{size}}{{/if}}">
+  <svg class="icon__svg">
+    <use xlink:href="{{asset 'icons/icon-sprite.svg'}}#{{name}}"></use>
+  </svg>
+</i>

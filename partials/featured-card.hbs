@@ -1,0 +1,75 @@
+<div class="featured-card{{#if class}} {{class}}{{/if}}">
+  {{!-- Feature Image --}}
+  {{#if feature_image}}
+    <figure class="featured-card__media">
+      <img class="lazyload"
+        data-srcset="{{img_url feature_image size="s"}} 300w,
+                {{img_url feature_image size="m"}} 600w,
+                {{img_url feature_image size="l"}} 1000w"
+        srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+        data-sizes="auto"
+        data-src="{{img_url feature_image size="s"}}"
+        src="{{img_url feature_image size="xxs"}}"
+        alt="{{title}}"
+      />
+    </figure>
+  {{/if}}
+
+  <div class="featured-card__content">
+    {{!-- Post Card tags  --}}
+    <div class="featured-card__header flex items-center">
+      {{#foreach tags}}
+        {{#link href=(url) class="featured-card__tag m-r-sm m-b-sm"}}{{name}}{{/link}}
+      {{/foreach}}
+    </div>
+
+    {{!-- Post Title --}}
+    <h2 class="featured-card__title">
+      {{#link href=(url) aria-label=(title)}}{{title}}{{/link}}
+    </h2>
+
+    {{!-- Post Card author & date --}}
+    <div class="featured-card__footer m-b"> 
+      {{#has author="count:1"}}
+        {{#primary_author}}
+          {{#link href=(url) class="featured-card__author flex"}}
+            {{#if profile_image}}
+              <img 
+                class="lazyload" 
+                data-sizes="auto"
+                data-src="{{img_url profile_image size="xs"}}" 
+                src="{{img_url profile_image size="xxs"}}" 
+                alt="{{name}}" 
+              />
+            {{/if}}
+            <div class="featured-card__info flex flex-col">
+              <span class="fw-600">{{name}}</span>
+              <time datetime="{{date ../published_at format='YYYY-MM-DD'}}" class="featured-card__date">
+                {{date ../published_at format="DD MMM YYYY"}}
+              </time>
+            </div>
+          {{/link}}
+        {{/primary_author}}
+      {{else}}
+        <div class="featured-card__info multi">
+          {{#foreach authors}}
+            {{#unless @first}}
+              {{#if @last}}
+                <span class="fw-600 m-l-xs m-r-xs">&</span>
+              {{else}}
+                <span class="fw-600 m-r-xs">,</span>
+              {{/if}}
+            {{/unless}}
+            {{#link href=(url) class="featured-card__author"}}
+              <span class="fw-600">{{name}}</span>{{/link}}
+          {{/foreach}}
+          <span class="m-l-sm m-r-sm separator-dot">&bull;</span>
+          <time datetime="{{date ../published_at format='YYYY-MM-DD'}}" class="featured-card__date">
+            {{date ../published_at format="DD MMM YYYY"}}
+          </time>
+        </div>
+      {{/has}}
+    </div>
+
+  </div>
+</div>

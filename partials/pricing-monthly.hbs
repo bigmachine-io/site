@@ -1,0 +1,23 @@
+<div class="checkout-plan card h-100">
+  <header class="checkout-plan__hdr m-b flex flex-col flex-cc text-acc-1">
+    <h3 class="checkout-plan__title m-b-xs">{{t "Monthly"}}</h3>
+    <div class="checkout-plan__price">
+      <sup>{{price currency=@price.currency}}</sup><strong>{{@price.monthly}}</strong>
+    </div>
+  </header>
+
+  <div class="checkout-plan__content text-acc-3 m-b">
+    <ul class="list--unstyled m-b-0">
+      <li>{{t "Full access to all private posts"}}</li>
+      <li>{{t "Regular updates with new content"}}</li>
+      <li>{{t "Support independent publishing"}}</li>
+      <li>{{t "Simple, secure card payment"}}</li>
+      <li>{{t "Regular newsletters"}}</li>
+      <li>{{t "No advertisement"}}</li>
+    </ul>
+  </div>
+
+  {{#link href="javascript:" data-members-plan="Monthly" class="btn btn--sm"}}
+    {{#if @member}}{{t "Upgrade"}}{{else}}{{t "Subscribe now"}}{{/if}}
+  {{/link}}
+</div>

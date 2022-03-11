@@ -1,0 +1,478 @@
+{
+  "career": [
+    {
+      "slug": "solo-intro",
+      "title": "Becoming a Solo Contractor"
+    },
+    {
+      "slug": "is-the-contract-programmer-thing-right-for-you",
+      "title": "Is The Contract Programmer Thing Right For You?"
+    },
+
+    {
+      "slug": "excercise-get-organized",
+      "title": "Exercise: Get Organized!"
+    },
+    {
+      "slug": "creating-your-business-plan",
+      "title": "Creating Your Business Plan"
+    },
+    {
+      "slug": "excercise-create-plan",
+      "title": "Exercise: Business Plan"
+    },
+    {
+      "slug": "exercise-business-name",
+      "title": "Exercise: Business Name"
+    },
+    {
+      "slug": "exercise-marketing-plan",
+      "title": "Exercise: Marketing Plan"
+    },
+    {
+      "slug": "setting-up-professional-services-for-your-contracting-gig",
+      "title": "Setting Up Professional Services for Your Contracting Gig"
+    },
+
+    {
+      "slug": "setting-up-your-finances-as-a-solo-contractor",
+      "title": "Setting Up Your Finances as a Solo Contractor"
+    },
+    {
+      "slug": "sample-contracts",
+      "title": "Sample Contracts"
+    },
+    {
+      "slug": "growing-your-professional-network",
+      "title": "Growing Your Professional Network"
+    },
+    {
+      "slug": "branding-your-solo-contracting-business",
+      "title": "Branding Your Solo Contracting Business"
+    },
+    {
+      "slug": "good-luck",
+      "title": "Good Luck!"
+    }
+  ],
+  "comp-sci": [
+    {
+      "slug": "arrays-linked-lists",
+      "title": "Arrays and Linked Lists",
+      "summary": "The building block data structures from which so many others are built. Arrays are incredibly simple - but how much do you know about them? Can you build a linked list from scratch?"
+    },
+    {
+      "slug": "basic-sorting-algorithms",
+      "title": "Basic Sorting Algorithms",
+      "summary": "You will likely *never* need to implement a sorting algorithm - but understanding how they work could come in handy at some point. Interviews and workarounds for framework problems come to mind. "
+    },
+    {
+      "slug": "basics-of-logic",
+      "title": "The Basics of Logic",
+      "summary": "Let’s jump right in at the only place we can: the very begining, diving into the perfectly obvious and terribly argumentative 'rules of logic'."
+    },
+    {
+      "slug": "big-o-notation",
+      "title": "Review: Big-O Notation",
+      "summary": "It's a thing you'll need to know if you plan to get through any interview. It's actually quite useful and in this post I'll hopefully make the case that's it's simple as well."
+    },
+    {
+      "slug": "binary-math",
+      "title": "Binary Mathematics",
+      "summary": "This is a famous interview question: 'write a routine that adds two positive integers and do it without using mathematic operators'. Turns out you can do this using binary!"
+    },
+    {
+      "slug": "binary-trees-and-graphs",
+      "title": "Trees, Binary Trees and Graphs",
+      "summary": "The bread and butter of technical interview questions. If you're going for a job at Google, Microsoft, Amazon or Facebook - you can be almost guaranteed to be asked a question that used a binary tree of some kind."
+    },
+    {
+      "slug": "bitwise-operations",
+      "title": "Bitwise Operators",
+      "summary": "Up until now we've been representing binary values as strings so we could see what's going on. It's time now to change that and get into some real binary operations."
+    },
+    {
+      "slug": "boolean-algebra",
+      "title": "Boolean Algebra",
+      "summary": "You're George Boole, a self-taught mathematician and somewhat of a genius. You want to know what God's thinking so you decide to take Aristotle's ideas of logic and go 'above and beyond' to include mathematical proofs."
+    },
+    {
+      "slug": "calculating-primes",
+      "title": "Calculating Prime Numbers",
+      "summary": "The use of prime numbers is everywhere in computer science... in fact you're using them right now to connect to this website, read your email and send text messages."
+    },
+    {
+      "slug": "database-normalization",
+      "title": "Database Normalization",
+      "summary": "How does a spreadsheet become a highly-tuned set of tables in a relational system? There are rules for this - the rules of normalization - which is an essential skill for any developer working with data"
+    },
+    {
+      "slug": "deciphering-a-complex-bash-script",
+      "title": "Deciphering a Complex Bash Script",
+      "summary": "I use the static site generator Jekyll to write my blog. I store the site at Github, who then translates and hosts it all for me for free. Jekyll is simple to use and I like it a lot. There's only one problem: it's a bit manual."
+    },
+    {
+      "slug": "design-patterns-behavioral",
+      "title": "Design Patterns: Behavioral",
+      "summary": "Mediators, Decorators and Facades - this is the deep end of object-oriented programming and something you'll come face to face with as your application grows."
+    },
+    {
+      "slug": "design-patterns-creational",
+      "title": "Design Patterns: Creational",
+      "summary": "Tried and true design patterns for creating objects in an object-oriented language."
+    },
+    {
+      "slug": "design-patterns-structural",
+      "title": "Design Patterns: Structural",
+      "summary": "As your application grows in size you need to have a plan to handle the increase in complexity. The Gang of Four have some ideas that could work for you."
+    },
+    {
+      "slug": "dfs-bfs-and-binary-tree-search",
+      "title": "DFS, BFS and Binary Tree Search",
+      "summary": "You now know all about trees and graphs - but how do you use them? With search and traversal algorithms of course! This is the next part you'll need to know when you're asked a traversal question in an interview. And you will be. "
+    },
+    {
+      "slug": "dynamic-programming-and-fibonnaci",
+      "title": "Dynamic Programming and Fibonnaci",
+      "summary": "Dynamic programming gives us a way to elegantly create algorithms for various problems and can greatly improve the way you solve problems in your daily work. It can also help you ace an interview."
+    },
+    {
+      "slug": "encoding-lossless-compression",
+      "title": "Encoding and Lossless Compression",
+      "summary": "Claude Shannon showed us how to change the way we encode things in order to increase efficiency and speed up information trasmission. We see how in this video."
+    },
+    {
+      "slug": "encryption-basics",
+      "title": "Encryption Basics",
+      "summary": "In this video we play around with cryptography and learn how to encrypt things in a very simple, basic way. We then ramp up our efforts quickliy, creating our own one-time pad and Diffie-Hellman secure key transmitter."
+    },
+    {
+      "slug": "entropy",
+      "title": "Entropy and Quantifying Information",
+      "summary": "Now that we know how to use binary to create switches and digitally represent information we need to ask the obvious question: 'is this worthwhile'? Are we improving things and if so, how much?"
+    },
+    {
+      "slug": "error-correction-part-1",
+      "title": "Error Correction, Part 1",
+      "summary": "There are *always* errors during the transmission of information, digital or otherwise. Whether it's written (typos, illegible writing), spoken (mumbling, environment noise) or digital (flipped bits), we have to account for and fix these problems."
+    },
+    {
+      "slug": "error-correction-part-2",
+      "title": "Error Correction, Part 2",
+      "summary": "In the previous video we saw how we could correct errors using parity bits. In this video we'll orchestrate those bits using some math along with a divide and conquer algorithm to correct single-bit errors in transmissions of any size."
+    },
+    {
+      "slug": "functional-programming",
+      "title": "Functional Programming",
+      "summary": "Functional programming builds on the concepts developed by Church when he created Lambda Calculus. We'll be using Elixir for this one, which is a wonderful language to use when discovering functional programming for the first time"
+    },
+    {
+      "slug": "graph-traversal-bellman-ford",
+      "title": "Graph Traversal: Bellman Ford",
+      "summary": "How can you traverse a graph ensuring you take the route with the lowest cost? The Bellman-Ford algorithm will answer this question."
+    },
+    {
+      "slug": "graph-traversal-dijkstra",
+      "title": "Graph Traversal: Dijkstra",
+      "summary": "Bellman-Ford works well but it takes too long and your graph can't have cycles. Dijkstra solved this problem with an elegant solution."
+    },
+    {
+      "slug": "hands-on-creating-a-useful-shell-script",
+      "title": "Hands On: Creating a Useful Shell Script",
+      "summary": "I use the static site generator Jekyll to write my blog. I store the site at Github, who then translates and hosts it all for me for free. Jekyll is simple to use and I like it a lot. There's only one problem: it's a bit manual."
+    },
+    {
+      "slug": "hashes",
+      "title": "Hashing and Asymmetric Encryption",
+      "summary": "In this video we dive into hashing algorithms, how they're used and what they're good (and not so good) for. We'll also dig into RSA, one of the most important pieces of software ever created."
+    },
+    {
+      "slug": "hashing",
+      "title": "Hashing and Asymmetric Encryption"
+    },
+    {
+      "slug": "lambda-calculus",
+      "title": "Lambda Calculus",
+      "summary": "Before their were computers or programming languages, Alonzo Church came up with a set of rules for working with functions, what he termed lambdas. These rules allow you to compute anything that can be computed."
+    },
+    {
+      "slug": "logical-negation",
+      "title": "Logical Negation",
+      "summary": "We've covered how to add binary numbers together, but how do you subtract them? For that, you need a system for recognizing a number as negative and a few extra rules. Those rules are one's and two's complement."
+    },
+    {
+      "slug": "making-your-life-easier-with-make",
+      "title": "Making Your Life Easier with Make",
+      "summary": "Make is a build utility that works with a file called a Makefile and basic shell scripts. It can be used to orchestrate the output of any project that requires a build phase. It's part of Linux and it's easy to use."
+    },
+    {
+      "slug": "principles-of-software-design",
+      "title": "Principles of Software Design",
+      "summary": "You've heard the terms before: YAGNI, SOLID, Tell Don't ASK, DRY... what are they and what do they mean?"
+    },
+    {
+      "slug": "shell-script-basics",
+      "title": "Shell Script Basics",
+      "summary": "It's a Unix world. You should have a functional knowledge of how to get around a Unix machine using the command line, as well as how to complete basic tasks using shell scripts and Make files."
+    },
+    {
+      "slug": "stacks-queues-hashtables",
+      "title": "Stacks, Queues and Hash Tables",
+      "summary": "You can build all kinds of things using the flexibility of a linked list. In this video we'll get to know a few of the more common data structures that you use every day."
+    },
+    {
+      "slug": "testing-your-code-tdd-and-bdd",
+      "title": "Testing Your Code: TDD and BDD",
+      "summary": "Testing code has moved beyond the realm of QA and into the realm of design, asking you to think about what you do before you do it. Let's have a look at some strategies."
+    },
+    {},
+    {
+      "slug": "using-make-to-improve-your-test-suite",
+      "title": "Using Make to Improve Your Test Suite",
+      "summary": "No video with this one - just a post with lots of code. Make has been around forever and is often overlooked in favor of tools that recreate precisely what it does, but in crappier ways. Let's see how you can use Make to help your testing process."
+    }
+  ],
+  "interviews": [
+    {
+      "slug": "big-o-notation",
+      "title": "Review: Big-O Notation",
+      "summary": "It's a thing you'll need to know if you plan to get through any interview. It's actually quite useful and in this post I'll hopefully make the case that's it's simple as well."
+    },
+    {
+      "slug": "good-luck",
+      "title": "Good Luck! You Got This…",
+      "summary": "You've got this - good luck! Study, remember your strategies and be your best you."
+    },
+    {
+      "slug": "interview-mindset",
+      "title": "Your Interview Mindset",
+      "summary": "You're not going to make it through this section unless you have the right frame of mind. Simply wanting a job isn't enough - you need to calm yourself and focus."
+    },
+    {
+      "slug": "introduction",
+      "title": "Let's Get Started!"
+    },
+    {
+      "slug": "jon-skeet-anagram-checker",
+      "title": "Jon Skeet: Anagram Checker",
+      "summary": "Let's end things with one that's a bit simpler - creating a string walking function that evaluates anagrams."
+    },
+    {
+      "slug": "jon-skeet-binary-tree-troubles",
+      "title": "Jon Skeet: Binary Tree Troubles",
+      "summary": "It's a rule of interviews: 'ask a binary tree question' and that's exactly what I do in this video with Jon. Traversing in different ways, trying to balance along the way."
+    },
+    {
+      "slug": "jon-skeet-creating-a-c-linter",
+      "title": "Jon Skeet: Creating a C# Linter",
+      "summary": "Another traditional question: create a linter for X language. This is more about parsing a string and remembering where you are within it."
+    },
+    {
+      "slug": "jon-skeet-creating-a-queue-from-scratch",
+      "title": "Jon Skeet: Creating a Queue from Scratch",
+      "summary": "This is another very popular question from larger companies, and requires you to be familiar with linked lists, arrays and stacks."
+    },
+    {
+      "slug": "jon-skeet-falling-from-great-heights",
+      "title": "Jon Skeet: Falling From Great Heights",
+      "summary": "Not all interview questions have to do with code - some are purely logical, designed to see how you would try and solve a really, really hard problem. Skeet couldn't figure this one out..."
+    },
+    {
+      "slug": "mechanics-of-coding-questions",
+      "title": "Understanding the Mechanics of The Interview Question",
+      "summary": "Don't hate me... and PLEASE don't skip this video. Let's walk through Fibonacci together as a way of understanding how interviewers will flex and extend a single question to dig into your brain."
+    },
+    {
+      "slug": "practice-product-of-all-numbers-but-this",
+      "title": "Practice: Product of All Numbers But This",
+      "summary": "A straightforward problem that, at first, seems daunting - until you break it down and apply the strategies you know."
+    },
+    {
+      "slug": "practice-question-smallest-range-of-k-lists",
+      "title": "Practice: Smallest Range of K Lists",
+      "summary": "This is a tough one and you might struggle with it some. If you do, practice speaking aloud to get help from the interviewer."
+    },
+    {
+      "slug": "practice-question-stock-prices",
+      "title": "Practice: Stock Price Calculation",
+      "summary": "This is a real interview question that comes straight from Amazon. You'll be writing this one by hand so remember your strategies."
+    },
+    {
+      "slug": "review-algorithms",
+      "title": "Review: Algorithms and Strategies",
+      "summary": "Now the fun starts! We have our data structures and now we need to focus on the algorithms we’re likely to be asked about in an interview. But that’s not enough! What you really need to do is to be able to tease out the strategy that you’ll need to use in combination with your data structures and algorithms. That will help you answer almost any interview question."
+    },
+    {
+      "slug": "review-data-structures",
+      "title": "Review: Data Structures",
+      "summary": "Let’s review data structures! It’s fun and exciting! In this section you’ll review and then build your very own data structures along with me! I’ll be using JavaScript to code mine, but feel free to use whatever language you like."
+    },
+    {
+      "slug": "screener-database",
+      "title": "Databases: How Would You Implement...?",
+      "summary": "Screener questions tend to have a bit more broad and, typically, based on your experience... sometimes not. Think about how you would answer this one about databases."
+    },
+    {
+      "slug": "screener-javascript-time",
+      "title": "JavaScript: What Time Is It?",
+      "summary": "Sometimes a potential interviewer will 'cosplay' with you - pretending that you work at the company and seeing how you might solve one of their realworld problems."
+    },
+    {
+      "slug": "the-screening-question",
+      "title": "Getting Past the Screener",
+      "summary": "Before you get to the white board you'll likely have to pass an introductory screening interview - a short call (or in person meeting) to suss out what you know."
+    }
+  ],
+  "sql": [
+    {
+      "slug": "01-intro",
+      "title": "Welcome!",
+      "summary": "You're about to dive into the glorious world of databases and the language of data - SQL. Lucky you! Our working data set will be the actual data from the Cassini mission, specifically that of Enceladus, an icy moon orbiting Saturn that is confounding scientists."
+    },
+    {
+      "slug": "02-setup",
+      "title": "Installing PostgreSQL",
+      "summary": "We'll be using PostgreSQL for our SQL and analysis tasks. You can use other systems and they work just fine - but for this one we'll be using PostgreSQL. We have a bunch of data to load up and poke through, so let's get rolling quickly OK?"
+    },
+    {
+      "slug": "03-extraction-intro",
+      "title": "Creating Our Workspace",
+      "summary": "When working with data you often hear the terms \"extraction, transformation and loading\" or \"ETL\". This is something that data analysis people think about more than say Application Developers - which I think is a bummer. It's important to know how the data in any application is going to be used so you can make sure you collect the right stuff!"
+    },
+    {
+      "slug": "04-extraction-import",
+      "title": "Importing the Master Plan",
+      "summary": "Our first task is to find the exact dates and times when Cassini flew by Enceladus and made its measurements. We need to create a time window so we can narrow down the results from the INMS - Cassini's on board \"Ion Neutral Mass Spectrometer\" - that's the thing that sniffed space for the chemicals we're looking for. Off we go!"
+    },
+    {
+      "slug": "05-extraction-inspect",
+      "title": "Inspecting the Master Plan",
+      "summary": "Now that the data is in the database, let's poke around and see what we have, using simple select statements and getting to know the Postgres client tool psql."
+    },
+    {
+      "slug": "06-tangent-dates",
+      "title": "Tangent: Working with Dates",
+      "summary": "Dates and timestamps are core to working with data as you will often find that if you don't know precisely WHEN something happened, it will become meaningless. Dates mark changes over time - those changes will often drive business decisions, so you better be correct!"
+    },
+    {
+      "slug": "07-extraction-validation",
+      "title": "Validating the Master Plan",
+      "summary": "The data in our mission plan looks straightforward but since it's a plan that is based on dates, we need to jump right into validating those dates. Thankfully for us, Postgres is outstanding at date and time functionality!"
+    },
+    {
+      "slug": "08-extraction-proper-script",
+      "title": "Creating a Proper Import Script",
+      "summary": "We don't like errors when running our imports and, unfortunately since we're human, we're going to have a lot of them. Instead of fixing things piecemeal, it's always better to just rerun everything."
+    },
+    {
+      "slug": "09-extraction-summary",
+      "title": "Extraction: Summary",
+      "summary": "We did a lot in this section! We dipped our toes into the lovely world of SQL and we also learned that we should NEVER trust a spreadsheet!"
+    },
+    {
+      "slug": "10-flybys-intro",
+      "title": "Flybys: Introduction",
+      "summary": "We have our tools and our initial extraction ready to go, now let's get to work finding the flybys of Enceladus! In this section we'll focus on transforming this data into something we can query with some degree of confidence and then, hopefully, we'll find the exact time windows for the flybys."
+    },
+    {
+      "slug": "11-normalization",
+      "title": "Concept: Normalization",
+      "summary": "Structuring a relational database is (typically) all about following the rules of normalization, called \"normal forms\". Sounds theoretical, but it's pretty straightforward."
+    },
+    {
+      "slug": "12-flybys-inspection",
+      "title": "Narrowing Our Search",
+      "summary": "Before we can normalize the mission plan data, we need to understand what's in the table and how it's related."
+    },
+    {
+      "slug": "13-flybys-isolation",
+      "title": "Isolating the Enceladus Data",
+      "summary": "Our inspection showed us how we can isolate the Enceladus data - now let's do it!"
+    },
+    {
+      "slug": "14-flybys-execution",
+      "title": "Creating the Working Set",
+      "summary": "It's time to nail down the flybys! We have a plan table full of Enceladus mission plan goodness - now we just need to figure out how to sift the data correctly."
+    },
+    {
+      "slug": "15-flybys-summary",
+      "title": "Summary of Flyby Work",
+      "summary": "We learned a few wonderful things in this section - one of the biggest, to me, is that our job is more than running queries - it's also digging in to the data we have and ensuring that it's usable."
+    },
+    {
+      "slug": "16-setup",
+      "title": "Introducing the INMS",
+      "summary": "The fun begins! We have the data we need isolated and we feel good about its integrity - now we're ready to let it tell us a story. But what story is that? This is where things get interesting."
+    },
+    {
+      "slug": "17-extract-load",
+      "title": "Extracting and Loading the INMS Data",
+      "summary": "We've done this all before so let's get rolling! The first thing we're going to do is to load up the INMS and chemical data into Postgres."
+    },
+    {
+      "slug": "18-loading-1",
+      "title": "Transformation, Part 1",
+      "summary": "The INMS CSV is loaded, now we need to create our analysis table using the full power of PostgreSQL - specifically strong data types with appropriate constraints."
+    },
+    {
+      "slug": "19-constraints",
+      "title": "Concept: Constraints",
+      "summary": "We've been moving along at a pretty fast clip and it's crucial that we don't go too fast, skimming over super important concepts like constraints!"
+    },
+    {
+      "slug": "20-loading-2",
+      "title": "Transformation, Part 2",
+      "summary": "Now that we understand constraints a little bit more, let's carry on and buff this table out completely. We'll add a timestamp with time zone so we know when the import happened and then we'll get into some weird stuff with generated columns!"
+    },
+    {
+      "slug": "21-troubleshooting",
+      "title": "Troubleshooting",
+      "summary": "Wouldn't be any fun if we did everything right the first time, would it? Imposing rules during transformation is always problematic - which is great! We get to learn about our assumptions and also dig deeper into the data."
+    },
+    {
+      "slug": "22-summary",
+      "title": "INMS Loading Summary",
+      "summary": "That was fun work! We learned a lot of fun concepts and some new SQL!"
+    },
+    {
+      "slug": "23-context",
+      "title": "Understanding What We're Looking For",
+      "summary": "The fun begins! We have the data we need isolated and we feel good about its integrity - now we're ready to let it tell us a story. But what story is that? This is where things get interesting."
+    },
+    {
+      "slug": "24-joins",
+      "title": "Concept: Joins",
+      "summary": "Bias can creep in anywhere during the analysis process - even in the way you structure your query and the joins you use."
+    },
+    {
+      "slug": "25-spreadsheet-export",
+      "title": "Spreadsheet Export",
+      "summary": "Excel is EVERYWHERE and for good reason - it's simple to use, you can visualize data and you can even write simple functions and macros. Excel is the powerhouse of the analytical world and we need to prepare our data to work with it."
+    },
+    {
+      "slug": "26-ethics",
+      "title": "Ethical Considerations",
+      "summary": "It's important to take a step back from time to time and consider just what it is you're doing and why. In our case, we're working with one of the most important scientific data sets of the last century - at least with respect to planetary studies."
+    },
+    {
+      "slug": "27-shipit",
+      "title": "Ship It!",
+      "summary": "We feel good about the data and we're ready to ship it off! But how? Well that, friends, is the best part! There are multiple ways to do this but by far the simplest way is with a simple shell command using PSQL and \\copy.  You can drop the file anywhere you like - on your desktop so you can email it, or, what's easiest, is to use a secure file sharing system like Dropbox, Google Drive, OneDrive - whatever. Nice and fast."
+    },
+    {
+      "slug": "28-summary",
+      "title": "Summary, and Farewell!",
+      "summary": "Parting... is such sweet sorry! I hope you were able to follow along with me in this section - because if you did your SQL and data skills just shot up - yay for you! Thanks for watching..."
+    },
+    {
+      "slug": "29-summary",
+      "title": "Summary, and Farewell!",
+      "summary": "Parting... is such sweet sorry! I hope you were able to follow along with me in this section - because if you did your SQL and data skills just shot up - yay for you! Thanks for watching..."
+    },
+    {
+      "slug": "review-data-structures",
+      "title": "Review: Data Structures",
+      "summary": "Let’s review data structures! It’s fun and exciting! In this section you’ll review and then build your very own data structures along with me! I’ll be using JavaScript to code mine, but feel free to use whatever language you like."
+    }
+  ]
+}

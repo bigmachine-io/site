@@ -1,0 +1,26 @@
+{{!< default}}
+
+{{#get "pages" filter="slug:members" limit="1" as |page|}}
+
+  {{!-- Show the profile --}}
+  {{#foreach page}}
+
+    {{> hero-profile-noform }}
+
+  {{/foreach}}
+{{/get}}
+
+{{!-- The main content --}}
+{{#get "posts"  filter="tag:-hash-products" limit="all"}}
+  {{!-- Posts --}}
+<div class="grid post-feed js-post-feed m-b-lg" data-post-feed="grid">
+        {{#foreach posts visibility="public,members" order="published_at"}}
+          {{> post-card 
+            show_img=true 
+            show_access=true
+            show_excerpt=true
+          }}
+        {{/foreach}}
+
+  </div>
+{{/get}}

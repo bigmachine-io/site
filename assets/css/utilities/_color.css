@@ -1,0 +1,100 @@
+.color-primary {
+  color: var(--color-primary)
+}
+
+.color-secondary {
+  color: var(--color-secondary);
+}
+
+.color-white {
+  color: var(--color-white);
+}
+
+.color-light {
+  color: var(--color-light);
+}
+
+.color-dark {
+  color: var(--color-dark);
+}
+
+.color-black {
+  color: var(--color-black);
+}
+
+.color-default {
+  color: var(--color-text);
+}
+
+.color-success {
+  color: var(--color-success);
+}
+
+.color-error {
+  color: var(--color-error);
+}
+
+.color-warning {
+  color: var(--color-warning);
+}
+
+.color-info {
+  color: var(--color-info);
+}
+
+.text-acc-1 {
+  color: var(--color-text-acc-1);
+}
+
+.text-acc-2 {
+  color: var(--color-text-acc-2);
+}
+
+.text-acc-3 {
+  color: var(--color-text-acc-3);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-default {
+  background-color: var(--color-bg);
+}
+
+.bg-acc-1 {
+  background-color: var(--color-bg-acc-1);
+}
+
+.bg-acc-2 {
+  background-color: var(--color-bg-acc-2);
+}
+
+.bg-acc-3 {
+  background-color: var(--color-bg-acc-3);
+}
+
+.bg-text {
+  background-color: var(--color-text);
+}
+
+.bg-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+.bg-gradient-radial {
+  background: radial-gradient(circle,var(--color-secondary) 40%, var(--color-neutral) 52%, var(--color-primary) 68%);
+}
+
+.overlay {
+  @mixin overlay 
+}
+
+.overlay__dark {
+  @mixin overlay 0.4
+}
+

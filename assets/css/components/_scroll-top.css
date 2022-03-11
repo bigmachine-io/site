@@ -1,0 +1,41 @@
+.scroll-top {
+	position: fixed;
+  z-index: 50;
+	right: var(--gap);
+	bottom: var(--gap);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(15px);  
+	height: 38px;
+	width: 38px;
+	cursor: pointer;
+	display: flex;
+  align-items: center;
+  justify-content: center;
+	border-radius: var(--global-radius);
+  transition: all var(--trans-default);
+  color: var(--color-text-reverse);
+  background-color: rgba(0,0,0,0.75); 
+  backdrop-filter: blur(10px); 
+
+  @mixin attention {
+    outline: none;
+    color: var(--color-primary);
+  }
+
+  &.is-active {
+    opacity: 1;
+    visibility: var(--global-scroll-top);
+    transform: translateY(0);
+  }
+
+  i {
+    position: absolute;
+  }
+}
+
+[data-color-scheme="dark"] {
+  .scroll-top {
+    background-color: rgba(255,255,255,0.75);
+  }
+}

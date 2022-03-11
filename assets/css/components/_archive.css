@@ -1,0 +1,48 @@
+.archive-post {
+  padding: var(--gap) 0;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+
+  &-label {
+    font-size: 1.2rem;
+  }
+
+  time {
+    font-size: 0.8rem;
+    margin: 0;
+    padding: var(--gap-xs) var(--gap-sm);
+    background-color: var(--color-bg-acc-2);
+    border-radius: var(--global-radius);
+    min-width: 4rem;
+    max-height: 1.6rem;
+    text-align: center;
+    font-weight: var(--font-weight-medium);
+    margin-right: var(--gap);
+  }
+
+  &__title {
+    font-size: 1rem;
+  }
+
+  a { 
+    @mixin attention {
+      color: var(--color-primary);
+    }
+  }
+}
+
+.post-month-1 + .post-month-1 .archive-post-label,
+.post-month-2 + .post-month-2 .archive-post-label,
+.post-month-3 + .post-month-3 .archive-post-label,
+.post-month-4 + .post-month-4 .archive-post-label,
+.post-month-5 + .post-month-5 .archive-post-label,
+.post-month-6 + .post-month-6 .archive-post-label,
+.post-month-7 + .post-month-7 .archive-post-label,
+.post-month-8 + .post-month-8 .archive-post-label,
+.post-month-9 + .post-month-9 .archive-post-label,
+.post-month-10 + .post-month-10 .archive-post-label,
+.post-month-11 + .post-month-11 .archive-post-label,
+.post-month-12 + .post-month-12 .archive-post-label {
+  display: none;
+}

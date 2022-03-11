@@ -1,0 +1,22 @@
+{{!-- Scroll Top --}}
+<button class="btn-toggle-round scroll-top js-scroll-top"
+  type="button" title="{{t "Scroll to top"}}" aria-label="{{t "Scroll to top"}}">
+  {{> icon name="arrow-up" size="sm"}}
+</button>
+
+{{#contentFor "scripts"}}
+  <script>
+    const scrollTop = document.querySelector('.js-scroll-top');
+
+    if (scrollTop) {
+      const offset = 80;
+
+      window.addEventListener('scroll', function(event) {
+        //Scroll back to top
+        const scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop;
+        scrollPos > offset ? scrollTop.classList.add('is-active') : scrollTop.classList.remove('is-active');
+      
+      }, false);
+    }
+  </script>
+{{/contentFor}}

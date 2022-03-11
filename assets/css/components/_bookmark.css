@@ -1,0 +1,49 @@
+.bookmarks {
+  padding: 0 var(--gap);
+  background-color: var(--color-bg);
+}
+
+.bookmark-post {
+  button {
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--trans-default);
+  }
+
+  &__action {
+    @mixin attention {
+      color: var(--color-error);
+    }
+  }
+
+  &__title {
+    display: block;
+  }
+
+  @mixin attention {
+    a { color: var(--color-primary) }
+    button {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.social-share .handle-bookmark {
+  @mixin attention {
+    border-color: var(--color-success);
+    color: var(--color-success);
+  }
+
+  &.is-saved {
+    border-color: var(--color-success);
+    color: var(--color-success);
+
+    @mixin attention {
+      border-color: var(--color-error);
+      color: var(--color-error);
+    }
+  }
+}
+
+  

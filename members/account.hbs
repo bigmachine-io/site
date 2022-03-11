@@ -1,0 +1,73 @@
+{{!< ../default}}
+
+{{!-- Page hero --}}
+{{#page}}
+  {{> post-hero 
+    wide_img=true
+    full_img=false
+    img_bg=false
+  }}
+{{else}}
+  <div class="hero__content flex flex-cc m-t-lg">
+    <h1 class="hero__title text-center m-b">{{t "Your account"}}</h1>
+  </div>
+{{/page}}
+
+{{#if @member.paid}}
+  {{!-- Logged in, paying member: Show account info --}}
+  <div class="member content-wrap border-1 text-acc-2 m-b-lg">
+    {{#foreach @member.subscriptions}}
+      {{!-- Show the member info --}}
+      {{#if @first}}
+        {{> member-profile}}
+      {{/if}}
+      
+      {{!-- Show the member subscription  --}}
+      {{> member-subscription}}
+    {{/foreach}}
+  </div>
+
+  {{#get "posts" include="authors,tags" limit="20"}}
+    <div class="section__title m-b">{{t "Premium member content"}}</div>
+    
+    <div class="row">
+      {{#foreach posts visibility="paid" limit="3"}}
+        <div class="col-xs-12 col-md-6 col-lg-4 m-b-lg">
+          {{> post-card class="h-100"}}
+        </div>
+      {{/foreach}}
+    </div>
+  {{/get}}
+
+{{else if @member}}
+
+  {{!-- Logged in, not paying: Link to checkout --}}
+  <div class="member content-wrap border-1 text-acc-2 m-b-lg">
+    {{!-- Show the member info --}}
+    {{> member-profile}}
+
+    {{!-- Show the member subscription  --}}
+    {{> member-subscription}}
+  </div>
+
+  {{!-- Logged in, not paying: Check out --}}
+  <div class="checkout__form">
+    <div class="checkout__title m-b text-center fw-600 text-xl text-acc-2">{{t "Choose your plan"}}</div>
+    
+    <div class="row">
+      <div class="col-xs-12 col-md-4 m-b-lg{{#if @member}} col-md-offset-2{{/if}}">
+        {{> pricing-monthly}}
+      </div>
+      
+      <div class="col-xs-12 col-md-4 m-b-lg">
+        {{> pricing-yearly}}
+      </div>
+    </div>
+  </div>
+
+{{else}}
+
+  {{!-- Not logged in: Redirect to signin --}}
+  <script>window.location = '{{@site.url}}/signin/';</script>
+
+{{/if}}

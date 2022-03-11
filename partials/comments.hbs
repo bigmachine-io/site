@@ -1,0 +1,14 @@
+{{!-- Comments --}}
+{{^has tag="#nocomment"}} {{!-- don't render comments if post has #nocomment tag --}}
+  <div class="bg-acc-1">
+    <div class="content-wrap">
+      <div class="comments flex flex-col flex-cc p-lg" id="comments">
+        {{!-- Comment/Uncomment below line to activate or deactivate cove comments --}}
+        {{> comments-cove}}
+
+        {{!-- Comment/Uncomment below line to activate or deactivate disqus comments --}}
+        {{!-- {{> comments-disqus}} --}}
+      </div>
+    </div>
+  </div>
+{{/has}}

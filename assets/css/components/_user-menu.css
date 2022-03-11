@@ -1,0 +1,108 @@
+.user-menu {
+  position: absolute;  
+  right: 1em;    
+  top: 2.6em;
+  min-width: 12rem;
+  background-color: var(--color-bg);
+  flex-direction: column;
+  cursor: initial;  
+  border-radius: var(--global-radius);
+  overflow: hidden;
+  box-shadow: 
+    0 0 0 1px var(--color-border),
+    0 10px 20px 5px rgba(0,0,0,0.1);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateX(10px);
+  transition: 
+    opacity var(--trans-default),
+    visibility var(--trans-default),
+    transform var(--trans-default);
+
+  &:focus-within,
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  i { margin-right: var(--gap-sm); }
+
+  .member-user {
+    display: flex;
+    padding: var(--gap);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .member-avatar {
+    img { 
+      display: block;
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  .member-name {
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-medium);
+    line-height: 1;
+  }
+
+  .member-email {
+    font-size: 0.85rem;
+    color: var(--color-text-acc-2);
+  }
+
+  .signin-link,
+  .signup-link,
+  .signout-link,
+  .account-link,
+  .upgrade-link,
+  .btn-theme-toggle {
+    display: flex;    
+    padding: var(--gap);
+    min-height: 3rem;
+    border: none;
+    margin: 0;
+    border-radius: 0;
+    outline: none;
+    border-bottom: 1px solid var(--color-border);
+
+    &:last-child {
+      border: none;
+    }
+
+    @mixin attention {
+      background-color: var(--color-bg-acc-1);
+      border-color: var(--color-border);
+      color: var(--color-primary);
+    }
+  }
+
+  .upgrade-link {
+    @media (--mq-sm) {
+      display: none;
+    }
+  }
+
+  .btn-theme-toggle {    
+    display: flex;
+    display: var(--global-theme-toggle);
+    align-items: center;
+    color: var(--color-text-acc-2);
+    cursor: pointer;
+    font-size: .9rem;
+    font-weight: var(--font-weight-semi-bold);
+    line-height: 1;
+    width: 100%;
+
+    @media (--mq-md) {
+      display: none;
+    }
+
+    span {
+      margin-left: calc(15px + var(--gap-sm));
+    }
+  }
+}
+

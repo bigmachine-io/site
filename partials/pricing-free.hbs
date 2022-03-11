@@ -1,0 +1,20 @@
+<div class="checkout-plan card h-100">
+  <header class="checkout-plan__hdr m-b flex flex-col flex-cc text-acc-1">
+    <h3 class="checkout-plan__title m-b-xs">{{t "Free"}}</h3>
+    <div class="checkout-plan__price">
+      <sup>{{price currency=@price.currency}}</sup><strong>{{price 0}}</strong>
+    </div>
+  </header>
+
+  <div class="checkout-plan__content text-acc-3 m-b">
+    <ul class="list--unstyled m-b-0">
+      <li>{{t "Access to subscriber posts"}}</li>
+      <li>{{t "Regular newsletters"}}</li>
+      <li>{{t "No advertisement"}}</li>
+    </ul>
+  </div>
+
+  {{#link href="/signup/" class="btn btn--sm"}}{{t "Subscribe now"}}{{/link}}
+  {{!-- Portal link --}}
+  {{!-- {{#link href="/signup/" data-portal="signup/free" class="btn btn--dark btn--sm"}}{{t "Subscribe now"}}{{/link}} --}}
+</div>

@@ -1,0 +1,51 @@
+{{!-- Post Card --}}
+<article class="post-card{{#if show_img}}{{#unless feature_image}} no-image{{/unless}}{{else}} no-image{{/if}} {{post_class}}{{#if featured}} is-featured{{/if}}{{#if class}} {{class}}{{/if}}{{#if is_reversed}} is-reversed{{/if}} js-post-card"> 
+
+  {{!-- Feature Image --}}
+  {{#if show_img}}
+    {{#if feature_image}}
+      {{#link href=(url) class=""}}
+
+        <img class="striped" style="border-radius:8px"
+          src="{{img_url feature_image}}"
+          alt="{{title}}"
+        />
+
+      {{/link}}
+
+      {{!-- Post access --}}
+      {{#if show_access}}
+        <span class="visibility">{{visibility}}</span>
+      {{/if}}
+    {{/if}}
+  {{/if}}
+
+  {{!-- Post card content --}}
+  <div class="post-card__content">
+    
+    {{!-- Post Card Title --}}
+    <h2 class="post-card__title m-t-sm" >
+      {{#link href=(url) aria-label=(title)}}{{title}}{{/link}}
+    </h2>
+
+    {{!-- Post card excerpt --}}
+    {{#if show_excerpt}}
+
+        <div class="post-card__exc m-b">
+          {{{custom_excerpt}}}
+        </div>
+
+    {{/if}}
+
+    {{!-- Post Card author & date
+    <div class="post-card__footer"> 
+          <div class="post-card__info">
+            <time class="post-card__date">
+              <i>{{date published_at format="MMMM DD, YYYY"}}</i>
+            </time>
+          </div>
+    </div>
+     --}}
+  </div>
+
+</article>

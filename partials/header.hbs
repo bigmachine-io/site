@@ -1,0 +1,89 @@
+{{!-- Site header --}}
+<header class="header js-header {{#if @custom.header_position}}is-{{@custom.header_position}}{{/if}}">
+  <div class="container wrapper w-100">
+    <div class="row">
+      <div class="col-xs col-lg-8 header__left flex items-center">
+        {{!-- Site logo or title --}}
+        {{#link href=@site.url class="header__brand"}}
+          {{#if @site.logo}}
+            {{!-- Site logo --}}
+            <img class="header__logo"
+              src="{{img_url @site.logo size="s"}}"
+              alt="{{@site.title}}"/>
+
+
+          {{else}}
+            {{!-- Site Title --}}
+            <span class="header__title m-0 p-0">{{@site.title}}</span>
+          {{/if}}
+        {{/link}}
+          <button class="m-l-md toggle" id="menu-toggle">
+              <i class="icon icon--lg">
+                <svg class="icon__svg">
+                  <use xlink:href="/assets/icons/icon-sprite.svg?v=a22fbc9a31#menu"></use>
+                </svg>
+              </i>               
+          </button>   
+      </div>
+
+      <div class="col-xs col-lg-4 header__right items-center content-end">
+        {{!-- Theme Toggle --}}
+        <button class="header__theme--toggle btn-theme-toggle js-theme-toggle"
+          title="{{t "Theme Toggle"}}" aria-label="{{t "Theme Toggle"}}" type="button">
+          {{> icon name="brightness-up" size="sm"}}
+          {{> icon name="brightness-down" size="sm"}}
+        </button>
+
+        {{!-- Search toggle for mobile --}}
+        <button class="header__search--toggle flex-cc js-search-open"
+          type="button" title="{{t "Search"}}" aria-label="{{t "Search"}}">
+          {{> icon name="search" size="sm"}}
+        </button>
+
+        {{!-- Sign up Button --}}
+        {{#if @member.paid}}
+        {{else if @member}}
+           {{#link href="/account/" class="upgrade-link"}}{{t "Go Pro"}}{{/link}}
+          {{!-- Portal link --}}
+          {{!--{{#link href="/account/" data-portal="account" class="upgrade-link"}}{{t "Upgrade"}}{{/link}}--}}
+        {{else}}
+          {{!-- {{#link href="/signin/" class="signin-link"}}{{t "Log In"}}{{/link}}--}}
+          {{!-- Portal link --}}
+         {{#link href="/signin/" data-portal="signin" class="signin-link"}}{{t "Log In"}}{{/link}}
+
+         {{!--{{#link href="/signup/" class="signup-link header-cta btn--gradient"}}{{t "Subscribe"}}{{/link}} --}}
+         {{#link href="/membership/" class="signup-link header-cta btn--gradient"}}{{t "Free Access"}}{{/link}} 
+          {{!-- Portal link --}}
+          {{!-- {{#link href="/signup/" data-portal="signup" class="signup-link header-cta btn--gradient"}}{{t "Subscribe"}}{{/link}}--}}
+        {{/if}}
+
+        {{!-- User Menu on Mobile --}}
+        <button class="header__user--toggle flex-cc js-member-btn{{#if @member}} is-member{{else}} is-not-member{{/if}}" 
+            title="{{#if @member}}{{customer.name}}{{else}}{{t "Menu"}}{{/if}}" 
+            aria-label="{{#if @member}}{{customer.name}}{{else}}{{t "Menu"}}{{/if}}">
+          {{#if @member}}
+            <img class="header__user-avatar" 
+              src="{{@member.avatar_image}}"
+              alt="{{@member.name}}"/>
+          {{/if}}
+          {{> icon name="user" size="sm"}}
+        </button>
+        {{> mobile-user-menu}}
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="mega-menu" style="display:none">
+  {{> mega-menu}}
+</div>
+
+<script>
+
+$(function(){
+  $("#menu-toggle").on("click", function(ev){
+    ev.preventDefault();
+    $("#mega-menu").toggle()
+  })
+})
+</script>

@@ -1,0 +1,53 @@
+{{!-- Content for paying members --}}
+{{#if @member.paid}}
+  <div class="member-subscription m-t p-t border-top-1 flex-1">
+    <div class="member-subscription__item">
+      <label class="member-subscription__label">{{t "Email"}}</label>
+      <span class="member-subscription__value">{{@member.email}}</span>
+    </div>
+
+    <div class="member-subscription__item">
+      <label class="member-subscription__label">{{t "Your plan"}}</label>
+      <span class="member-subscription__value">{{price plan}}/{{plan.interval}}</span>
+    </div>
+
+    <div class="member-subscription__item">
+      <label class="member-subscription__label">{{t "Card"}}</label>
+      <span class="member-subscription__value">**** **** **** {{default_payment_card_last4}}</span>
+    </div>
+
+    <div class="member-subscription__item">
+      <label class="member-subscription__label">
+        {{#if cancel_at_period_end}}{{t "Expires"}}{{else}}{{t "Next bill date"}}{{/if}}
+      </label>
+      <span class="member-subscription__value">{{date current_period_end format="DD MMM YYYY"}}</span>
+    </div>
+
+    <div class="member-subscription__edit">
+      <a class="btn btn--primary m-r btn--xs" href="javascript:"
+          data-members-edit-billing
+          data-members-success="{{@site.url}}/account/?stripe=billing-update-success"
+          data-members-cancel="{{@site.url}}/account/?stripe=billing-update-cancel"
+        >{{t "Edit billing info"}}</a>
+
+      {{cancel_link 
+        class="btn btn--bordered btn--xs"
+        cancelLabel=(t 'Cancel subscription')
+        continueLabel=(t 'Continue subscription')
+      }}
+    </div>
+  </div>
+{{!-- Content for free members --}}
+{{else if @member}}
+  <div class="member-subscription m-t border-top-1">
+    <div class="member-subscription__item">
+      <label class="member-subscription__label">{{t "Email"}}</label>
+      <span class="member-subscription__value">{{@member.email}}</span>
+    </div>
+
+    <div class="member-subscription__item">
+      <label class="member-subscription__label">{{t "Your plan"}}</label>
+      <span class="member-subscription__value">{{t "Free"}}</span>
+    </div>
+  </div>
+{{/if}}

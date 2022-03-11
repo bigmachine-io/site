@@ -1,0 +1,98 @@
+<div class="notifications">
+  {{!-- Sign up --}}
+  <div class="notify notify-signup">
+    <div class="notify__msg">{{t "Great! You’ve successfully signed up."}}</div> 
+    <button class="notify__close js-notify-close" data-class="signup-success" aria-label="{{t "Close"}}"></button>
+  </div>
+
+  {{!-- Signin --}}
+  <div class="notify notify-signin">
+    <div class="notify__msg">{{t "Welcome back! You've successfully signed in."}}</div> 
+    <button class="notify__close js-notify-close" data-class="signin-success" aria-label="{{t "Close"}}"></button>
+  </div>
+
+  {{!-- Subscribe --}}
+  <div class="notify notify-subscribe">
+    <div class="notify__msg">{{t "You've successfully subscribed to {sitetitle}." sitetitle=@site.title}}</div> 
+    <button class="notify__close js-notify-close" data-class="subscribe-success" aria-label="{{t "Close"}}"></button>
+  </div>
+
+  {{!-- Expired --}}
+  <div class="notify notify-expired">
+    <div class="notify__msg">{{t "Your link has expired."}}</div> 
+    <button class="notify__close js-notify-close" data-class="link-expired" aria-label="{{t "Close"}}"></button>
+  </div>
+
+  {{!-- Checkout --}}
+  <div class="notify notify-checkout">
+    <div class="notify__msg">{{t "Success! Check your email for magic link to sign-in."}}</div> 
+    <button class="notify__close js-notify-close" data-class="checkout-success" aria-label="{{t "Close"}}"></button>
+  </div>
+
+  {{!-- Billing --}}
+  <div class="notify notify-billing-success">
+    <div class="notify__msg">{{t "Success! Your billing info has been updated."}}</div> 
+    <button class="notify__close js-notify-close" data-class="billing-success" aria-label="{{t "Close"}}"></button>
+  </div>
+
+  {{!-- Billing cancel --}}
+  <div class="notify notify-billing-cancel">
+    <div class="notify__msg">{{t "Your billing was not updated."}}</div> 
+    <button class="notify__close js-notify-close" data-class="billing-cancel" aria-label="{{t "Close"}}"></button>
+  </div>
+</div>
+
+{{#contentFor "scripts"}}
+  <script>
+    // Give the parameter a variable name
+    const qsParams = new URLSearchParams(window.location.search);
+    const isAction = qsParams.has('action');
+    const isStripe = qsParams.has('stripe');
+    const success = qsParams.get('success');
+    const action = qsParams.get('action');
+    const stripe = qsParams.get('stripe');
+
+    if (qsParams && isAction) {
+      if (success === "true") {
+        switch (action) {
+          case 'subscribe':
+            document.body.classList.add('subscribe-success')
+            break;
+          case 'signup': 
+            document.body.classList.add('signup-success');
+            break;
+          case 'signin':
+            document.body.classList.add('signin-success');
+            break;
+          default:
+            break;
+        }
+      } else {
+        document.body.classList.add('link-expired');
+      }
+    }
+
+    if (qsParams && isStripe) {
+      switch (stripe) {
+        case 'success':
+          document.body.classList.add('checkout-success');
+          break;
+        case 'billing-update-success':
+          document.body.classList.add('billing-success');
+          break;
+        case 'billing-update-cancel':
+          document.body.classList.add('billing-cancel');
+          break;
+        default:
+          break;
+      }
+    }
+    
+    /**
+    * Clean URI
+    */
+    function clearURI() {
+      window.history.replaceState({}, '', `${window.location.pathname}`);
+    }
+  </script>
+{{/contentFor}}

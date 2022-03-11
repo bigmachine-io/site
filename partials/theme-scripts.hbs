@@ -1,0 +1,33 @@
+<script>
+  // Dark/Light Theme Handling
+  let preferredTheme; 
+  if (CONFIG.DEFAULT_COLOR_SCHEME.toLowerCase() === 'system') {
+    const preferredColorScheme = 
+    ( window.matchMedia 
+      && window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) 
+    ? 'dark' 
+    : 'light'
+    preferredTheme = localStorage.getItem('USER_COLOR_SCHEME') || preferredColorScheme;
+  } else {
+    preferredTheme = localStorage.getItem('USER_COLOR_SCHEME') || CONFIG.DEFAULT_COLOR_SCHEME.toLowerCase();
+  }
+  document.documentElement.setAttribute('data-color-scheme', preferredTheme);
+
+  // Newsletter overlay
+  let userIntroPreference = localStorage.getItem('USER_INTRO');
+  if (userIntroPreference) {
+    document.documentElement.setAttribute('data-intro', userIntroPreference);
+  }
+  
+  // Global values needed
+  let GLOBAL = {
+    CURRENT_PAGE: parseInt('{{pagination.page}}'),
+    NEXT_PAGE: parseInt('{{pagination.next}}'),
+    NEXT_PAGE_LINK: '',
+    MAX_PAGES: parseInt('{{pagination.pages}}'), 
+    LAST_PAGE: `{{pagination.page}}` === `{{pagination.pages}}` ? true : false,
+    POSTS_PER_PAGE: parseInt('{{@config.posts_per_page}}'),
+    SCROLL_POS: 0
+  }
+</script>

@@ -1,0 +1,41 @@
+{{!-- Theme config for js functions --}}
+<script>
+  // Basic Config
+  let CONFIG = {
+    GHOST_URL: `{{#if @custom.search_url}}{{@custom.search_url}}{{/if}}`, 
+    GHOST_KEY: `{{#if @custom.search_key}}{{@custom.search_key}}{{/if}}`,
+    GHOST_SEARCH_IN_CONTENT: !!`{{#if @custom.search_in_content}}{{@custom.search_in_content}}{{/if}}`,
+    GHOST_VERSION: 'v4',
+    GHOST_SEARCH_LIMIT: 8,
+    DEFAULT_COLOR_SCHEME: `{{#if @custom.default_color_scheme}}{{@custom.default_color_scheme}}{{else}}system{{/if}}`,
+    ENABLE_FLOATING_HEADER: !!`{{#if @custom.header_position}}{{#match @custom.header_position "floating"}}true{{/match}}{{/if}}`,
+    ENABLE_IMAGE_LIGHTBOX: !!`{{#if @custom.enable_image_lightbox}}{{@custom.enable_image_lightbox}}{{/if}}`,
+    OPEN_LINKS_IN_NEW_TAB: !!`{{#if @custom.open_external_links_in_new_tab}}{{@custom.open_external_links_in_new_tab}}{{/if}}`,
+    ENABLE_PWA: false, /* Enable PWA - Progressive Web App */
+    DISQUS_SHORTNAME: '', /* Replace 'biron-demo' with your disqus account shortname */
+    COVE_ID: '40d1085d0ad5da6569b291c9132cbbe7' /* To use Cove, replace the below id with your cove publication id*/
+  }
+</script>
+
+{{!-- Global UI parameters --}}
+<style>
+  :root {
+    --global-theme-notifications: flex; /* flex/none */
+    --global-intro-bg: var(--color-primary); /* you can add your own color */
+    --global-theme-toggle: flex; /* flex/none */
+    --global-search: flex; /* flex/none */
+    --global-search-by-tag: flex; /* flex/none */
+    --global-max-width: 1280px; /* site max width */
+    --global-content-width: 902px; /* post-content-width */
+    --global-radius: 5px; /* default radius */
+    --global-gallery-gap: 0.5em; /* Image gallery distance between images */
+    --global-hyphens: none; /* none/auto */
+    --global-header-position: sticky; /* relative/sticky */
+    --global-header-height: 80px;
+    --global-progress-bar: visible; /* visible/hidden */
+    --global-scroll-top: hidden; /* visible/hidden */
+    --global-content-preview-fading: 0%; /* 80%-100% for fading effect */
+    --global-announcement-height: 60px;
+    {{#if @custom.secondary_color}}--color-secondary: {{@custom.secondary_color}};{{/if}}
+  }
+</style>

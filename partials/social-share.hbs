@@ -1,0 +1,72 @@
+{{!-- Post/Page share icons --}}
+<div class="social-share m-b">
+  <span class="social-share__label fw-600 text-sm text-acc-3 m-r-sm">{{t "Share"}}</span>
+  {{!-- twitter --}}
+  <a class="social-share__item twitter js-share" target="_blank"
+      href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute='true'}}"
+      title="{{t "Share on"}} Twitter" aria-label="{{t "Share on"}} Twitter">
+    {{> icon name="twitter" size="sm"}}
+  </a>
+  {{!-- facebook --}}
+  <a class="social-share__item facebook js-share" target="_blank"
+      href="https://www.facebook.com/sharer.php?u={{url absolute='true'}}"
+      title="{{t "Share on"}} Facebook" aria-label="{{t "Share on"}} Facebook">
+    {{> icon name="facebook" size="sm"}}
+  </a>
+  {{!-- Linkedin --}}
+  <a class="social-share__item linkedin js-share" target="_blank"
+      href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute='true'}}&title={{encode title}}&summary={{encode title}}"
+      title="{{t "Share on"}} Linkedin" aria-label="{{t "Share on"}} Linkedin">
+    {{> icon name="linkedin" size="sm"}}
+  </a>
+  {{!-- Mail --}}
+  <a class="social-share__item mail"
+      href="mailto:?subject={{encode title}}&body={{url absolute='true'}}&nbsp;{{encode title}}"
+      title="{{t "Share by email"}}" aria-label="{{t "Share by email"}}">
+    {{> icon name="mail" size="sm"}}
+  </a>
+  {{!-- Copy to clipboard --}}
+  <button class="copy-link copy js-copy-link" data-url="{{url absolute='true'}}"
+      title="{{t "Copy to clipboard"}}" data-label="{{t "Copied!"}}" aria-label="{{t "Copy to clipboard"}}">
+    {{> icon name="copy" size="sm"}}
+  </button>
+</div>
+
+{{#contentFor "scripts"}}
+  <script>
+    // Copy button
+    const copyBtn = document.querySelector('.js-copy-link');
+    if (copyBtn) {
+      copyBtn.onclick = function(event) {
+        copyToClipboard(event.currentTarget, event.currentTarget.getAttribute('data-url'));
+      }
+    }
+    
+    /** 
+    * Copy to clipboard
+    * @src - source element
+    * @str - string to copy
+    */ 
+    const copyToClipboard = function(src, str) {
+      const el = document.createElement('textarea');
+      el.value = str;
+      el.setAttribute('readonly', '');
+      el.style.position = 'absolute';
+      el.style.left = '-9999px';
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+
+      src.classList.add('has-tooltip');
+      src.setAttribute('data-label', 'Copied!');
+
+      src.onmouseleave = function() { 
+        src.classList.remove('has-tooltip');
+        setTimeout(function(){
+          src.setAttribute('data-label', '');
+        }, 500); 
+      }
+    };
+  </script>
+{{/contentFor}}

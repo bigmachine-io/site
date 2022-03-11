@@ -1,0 +1,122 @@
+{{!< default}}
+
+{{!-- Personal profile based on profile page--}}
+{{#get "pages" filter="slug:profile" limit="1" as |profile|}}
+
+  {{!-- Show the profile --}}
+  {{#foreach profile}}
+
+    {{> hero }}
+
+  <article class="{{post_class}} content-wrap post-access-{{visibility}}">
+    <div class="content">
+      {{#if access}}
+        {{content}}
+      {{else}}
+        {{> content-cta}}
+      {{/if}}
+    </div>
+  </article>
+
+  {{/foreach}}
+{{/get}}
+
+{{!-- Books --}}
+<div class="flex m-t-xl m-b" style="mx-auto">
+  <div class="section__title flex-1">
+    <h2 style="text-align:center">Books</h2>
+  </div>
+</div>
+<hr>
+<div class="grid post-feed js-post-feed m-b-lg" data-post-feed="{{#if @custom.post_feed_style}}{{@custom.post_feed_style}}{{else}}grid{{/if}}">
+{{#get "posts" include="tags" filter="tags:['hash-products']"}}
+  {{#foreach posts}}
+    {{> post-card 
+      show_img=true 
+      show_access=false
+      show_excerpt=true
+    }}
+  {{/foreach}}
+{{/get}}
+</div>
+
+{{#get "tags"}}
+<hr>
+<div class="flex m-t-xl m-b" style="mx-auto">
+  <div class="section__title flex-1">
+    <h2 style="text-align:center">Topics</h2>
+  </div>
+</div>
+
+<div class="grid post-feed js-post-feed m-b-lg" data-post-feed="grid">
+  {{#foreach tags }}
+    {{> tag-card 
+      show_img=true 
+      show_access=true
+      show_excerpt=true
+    }}
+  {{/foreach}}
+</div>
+{{/get}}
+
+<hr>
+<div class="flex m-t-xl m-b" style="mx-auto">
+  <div class="section__title flex-1">
+    <h2 style="text-align:center">Free Stuff</h2>
+  </div>
+  {{#link href="/free/" class="btn--view"}}
+    <span class="m-r-sm">{{t "View all"}}</span> 
+    {{> icon name="arrow-right" size="xs"}}
+  {{/link}}
+</div>
+
+<div class="grid post-feed js-post-feed m-b-lg" data-post-feed="{{#if @custom.post_feed_style}}{{@custom.post_feed_style}}{{else}}grid{{/if}}">
+  {{#foreach posts visibility="public" order="published_at" to="3"}}
+    {{> post-card 
+      show_img=true 
+      show_access=true
+      show_excerpt=true
+    }}
+  {{/foreach}}
+</div>
+
+<hr>
+<div class="flex m-t-xl m-b" style="mx-auto">
+  <div class="section__title flex-1">
+    <h2 style="text-align:center">The Latest</h2>
+  </div>
+  {{#link href="/everything/" class="btn--view"}}
+    <span class="m-r-sm">{{t "View all"}}</span> 
+    {{> icon name="arrow-right" size="xs"}}
+  {{/link}}
+</div>
+
+<div class="grid post-feed js-post-feed m-b-lg" data-post-feed="{{#if @custom.post_feed_style}}{{@custom.post_feed_style}}{{else}}grid{{/if}}">
+  {{#foreach posts to="6"}}
+    {{> post-card 
+      show_img=true 
+      show_access=true
+      show_excerpt=true
+    }}
+  {{/foreach}}
+</div>
+
+<hr>
+<div class="flex m-t-lg m-b" style="mx-auto">
+  <div class="section__title flex-1">
+    <h2 style="text-align:center">Courses</h2>
+  </div>
+</div>
+
+
+<div class="grid post-feed js-post-feed m-b-lg" data-post-feed="{{#if @custom.post_feed_style}}{{@custom.post_feed_style}}{{else}}grid{{/if}}">
+  {{#get "pages" include="tags" filter="tags:['production']" order="published_at desc"}}
+  {{#foreach pages}}
+    {{> post-card 
+      show_img=true 
+      show_access=false
+      show_excerpt=true
+    }}
+  {{/foreach}}
+  {{/get}}
+</div>

@@ -1,0 +1,219 @@
+.hero {
+  --color-accent: var(--color-grey);
+  flex-direction: column-reverse;
+  margin-bottom: var(--gap-lg);
+
+  &__title {
+    max-width: 50rem;
+  }
+
+  &__media {
+    max-width: var(--global-content-width);
+    border-radius: var(--global-radius);
+    margin: 0 auto;
+
+    &.wide {
+      max-width: calc(var(--global-content-width) + 20rem);
+    }
+
+    &.full {
+      max-width: none;
+    }
+
+    &.is-bg {
+      /* position: absolute; */
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      max-width: none;
+      max-height: none;
+
+      .hero__figure {
+        padding-top: 0;
+        height: 100%;
+      }
+    }
+
+    img { border-radius: inherit; }
+  }
+
+  &__figure {
+    position: relative;
+    margin: 0;
+    border-radius: var(--global-radius);
+
+    img {
+      top: 0;
+      left: 0;
+      border-radius: var(--global-radius);
+      background-color: var(--color-bg-acc-1);
+      max-height: 30rem;
+    }
+
+    figcaption {
+      width: 100%;
+      max-width: 40rem;
+      margin: 0 auto;
+
+      a { 
+        color: var(--color-primary); 
+        border-bottom: 1px solid var(--color-primary);
+
+        @mixin attention {
+          border-bottom-width: 2px;
+        }
+      }
+    }
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    max-height: 30rem;
+  }
+
+  .featured .icon {
+    color: var(--color-gold);
+    fill: var(--color-gold);
+  }
+
+  &.has-img-bg,
+  &.has-color-bg {
+    /* background-color: var(--color-accent); */
+    position: relative;
+    justify-content: center;
+    min-height: 28rem;
+    border-radius: var(--global-radius);
+    overflow: hidden;
+    /* padding: var(--gap); */
+    border-radius: var(--global-radius);
+
+    /* @media (--mq-md) {
+      padding: var(--gap-lg);
+    }
+
+    @media (--mq-lg) {
+      padding: var(--gap-xl);
+    } */
+
+    .hero__content {
+      position: absolute;
+      max-width: 40rem;
+      min-width: 50%;
+      margin: 0;
+      padding: var(--gap);
+      border-radius: var(--global-radius);
+      text-align: center;
+      background-color: rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+      z-index: 1;
+      overflow: hidden;
+
+      @media (--mq-md) {
+        padding: var(--gap-lg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .hero__media,
+    .hero__figure {
+      background-color: transparent;
+
+      figcaption {    
+        bottom: 0;
+        /* background-color: rgba(255,255,255,0.25); */
+        color: var(--color-grey-dark);
+      }
+    }
+
+    .hero__info {
+      color: var(--color-light);
+    }
+
+    .separator-dot {
+      color: var(--color-light);
+    }
+
+    .hero__title {
+      color: var(--color-white);
+    }
+
+    .hero__descr,
+    .hero__details {
+      color: var(--color-white);
+      text-align: center;
+      max-width: 30rem;
+    }
+
+    .subscribe-form {
+      max-width: 30rem;
+    }
+  }
+
+  &.col-2 {
+    @media (--mq-md) {
+      flex-direction: row;
+    }
+
+    .hero__media {
+      width: 100%;
+      margin-bottom: var(--gap);
+      max-height: 16rem;
+
+      @media (--mq-md) {
+        margin-bottom: 0;
+        max-height: 26rem;
+        flex: 1;
+      }
+    }
+
+    .hero__content {
+      @media (--mq-md) {
+        margin-right: var(--gap);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+      }
+    }
+
+    .hero__title,
+    .hero__descr,
+    .hero__details,
+    .subscribe-form {
+      max-width: 30rem;
+    }
+  }
+
+  &.hero-cta {
+    @media (--mq-lg) {
+      margin-bottom: 3em;
+    }
+  }
+}
+
+.author-template .hero.has-img-bg {
+  min-height: 22rem;
+  padding-top: 4em;
+
+  @media (--mq-md) {
+    padding-top: 6em;
+  }
+}
+
+.author-template .hero.has-img-bg,
+.tag-template .hero.has-img-bg {
+  .hero__content {
+    z-index: 10;
+    overflow: initial;
+  }
+}
